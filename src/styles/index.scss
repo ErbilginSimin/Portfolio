@@ -2,3 +2,26 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &.summer {
+    background: url(/public/summer.jpg) no-repeat center center;
+   background-size: cover;
+  }
+
+  &.autumn {
+    background: linear-gradient(to bottom, #FF4500, #8B4513);
+  }
+
+  &.winter {
+    background: linear-gradient(to bottom, #00BFFF, #1E90FF);
+  }
+
+  &.spring {
+    background: linear-gradient(to bottom, #00FF7F, #32CD32);
+  }
+}
