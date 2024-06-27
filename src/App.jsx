@@ -4,9 +4,7 @@ function App() {
  
 
   return (
-    <>
-      <h1 className='flex justify-center '>HELLO WORLD</h1>
-    </>
+   <h1> COUCOU </h1>
   )
 }
 
