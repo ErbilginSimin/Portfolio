@@ -16,6 +16,9 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
+      colors: {
+        primary : "#23422d"
+      },
       boxShadow: {
         'hot': '0 20px 25px -5px rgba(248, 185, 78, 0.5), 0 10px 10px -5px rgba(248, 185, 78, 0.4)',
         'inner-thick-white': 'inset 0 0 0 10px white',

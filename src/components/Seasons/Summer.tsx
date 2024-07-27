@@ -9,10 +9,10 @@ import SeasonMenu from '../SeasonMenu/SeasonMenu';
 function Summer() {
   return (
     <div id="Summer" className="relative w-full min-h-screen flex flex-col">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow mt-5">
-        <Intro />
-        <Skills />
+        {/* <Intro /> */}
+        {/* <Skills /> */}
         {/* <About /> */}
         {/* <SeasonMenu /> */}
       </main>

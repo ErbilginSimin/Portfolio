@@ -1,3 +1,4 @@
+// App.jsx
 import './styles/index.scss';
 import React from 'react';
 import { SeasonProvider, useSeasonContext } from './contexts/SeasonContext';
@@ -6,6 +7,7 @@ import Summer from './components/Seasons/Summer';
 import Autumn from './components/Seasons/Autumn';
 import Winter from './components/Seasons/Winter';
 import Spring from './components/Seasons/Spring';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function MainContent() {
 
   return (
     <div className={`app-container ${season.toLowerCase()}`}>
+      <LandingPage />
       <main className="flex-grow">
         {season === 'Summer' && <Summer />}
         {season === 'Autumn' && <Autumn />}

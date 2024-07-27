@@ -11,7 +11,7 @@ export const BackgroundGradientAnimation = ({
   fourthColor = "200, 50, 50",
   fifthColor = "180, 180, 50",
   pointerColor = "140, 100, 255",
-  size = "80%",
+  size = "100%",
   blendingValue = "hard-light",
   children,
   className,
@@ -104,7 +104,7 @@ export const BackgroundGradientAnimation = ({
       <div className={cn("", className)}>{children}</div>
       <div
         className={cn(
-          "gradients-container h-full w-full blur-lg",
+          "gradients-container h-[60%] w-full blur-lg",
           isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
         )}
       >
