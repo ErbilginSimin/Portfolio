@@ -29,6 +29,8 @@ export function SeasonProvider({ children }: SeasonProviderProps) {
     return () => clearInterval(interval);
   }, []);
 
+  console.log('Current season in provider:', season); // Ajoutez ceci pour vérifier la saison dans le provider
+
   return (
     <SeasonContext.Provider value={{ season, setSeason }}>
       {children}

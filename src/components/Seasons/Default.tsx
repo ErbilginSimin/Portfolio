@@ -6,19 +6,22 @@ import Skills from '../Skills/Skills';
 import About from '../About/About';
 import SeasonMenu from '../SeasonMenu/SeasonMenu';
 
-function Summer() {
+function Default() {
   return (
-    <div id="Summer" className="relative w-full min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow mt-5">
+    <section id="Summer" className="relative w-full min-h-screen flex flex-col justify-between">
+      
+        <Header />
+        <SeasonMenu />
         <Intro />
+      <div className="Content z-10 flex flex-col flex-grow">
         <Skills />
-        {/* <About /> */}
-        {/* <SeasonMenu /> */}
-      </main>
+        <About />
+        
+
+      </div>
       <Footer />
-    </div>
+    </section>
   );
 }
 
-export default Summer;
+export default Default;

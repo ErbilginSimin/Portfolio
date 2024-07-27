@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
+import "./About.scss";
 
-function About() {
-  <section id="about" className="bg-yellow-100 py-20">
-    <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-4">About Me</h2>
-      <p className="text-lg"></p>
-    </div>
-  </section>;
+function About () {
+    return (
+        <div id="About" className="relative size-full h-52 md:h-96 lg:h-120 xl:h-144 flex flex-col lg:px-12">
+            <h2 className="Tittle uppercase text-4xl font-semibold mb-4 text-white">À propos</h2>
+        </div>
+    );
 }
 
 export default About;

@@ -1,14 +1,11 @@
 import './styles/index.scss';
 import React from 'react';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Intro from './components/Intro/Intro';
-import Projects from './components/Proj/Projects';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
-import SeasonMenu from './components/SeasonMenu/SeasonMenu';
-import { SeasonProvider } from './contexts/SeasonContext';
-import { useSeasonContext } from './contexts/SeasonContext';
+import { SeasonProvider, useSeasonContext } from './contexts/SeasonContext';
+import Default from './components/Seasons/Default';
+import Summer from './components/Seasons/Summer';
+import Autumn from './components/Seasons/Autumn';
+import Winter from './components/Seasons/Winter';
+import Spring from './components/Seasons/Spring';
 
 function App() {
   return (
@@ -23,18 +20,15 @@ function MainContent() {
 
   return (
     <div className={`app-container ${season.toLowerCase()}`}>
-      <Header />
-      <SeasonMenu />
       <main className="flex-grow">
-        <Intro />
-        <Projects />
-        <About />
-        <Contact />
+        {season === 'Summer' && <Summer />}
+        {season === 'Autumn' && <Autumn />}
+        {season === 'Winter' && <Winter />}
+        {season === 'Spring' && <Spring />}
+        {!['Summer', 'Autumn', 'Winter', 'Spring'].includes(season) && <Default />}
       </main>
-      <Footer />
     </div>
   );
 }
-
 
 export default App;
