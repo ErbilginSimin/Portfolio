@@ -16,7 +16,11 @@ interface VortexProps {
   backgroundColor?: string;
 }
 
-const hues = [50, 30, 15, 45, 60]; // Palette de teintes pour les particules du soleil
+const hues = [
+  "rgba(255, 105, 180, 0.8)", // Hot Pink
+  "rgba(50, 205, 50, 0.8)", // Lime Green
+  "rgba(255, 255, 0, 0.5)"  // Yellow
+]; 
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -80,7 +84,7 @@ export const Vortex = (props: VortexProps) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    let x, y, vx, vy, life, ttl, speed, radius, hue;
+    let x, y, vx, vy, life, ttl, speed, radius, hueIndex;
 
     x = rand(canvas.width);
     y = center[1] + randRange(rangeY);
@@ -90,9 +94,9 @@ export const Vortex = (props: VortexProps) => {
     ttl = baseTTL + rand(rangeTTL);
     speed = baseSpeed + rand(rangeSpeed);
     radius = baseRadius + rand(rangeRadius);
-    hue = hues[Math.floor(rand(hues.length))]; // Choisir une teinte aléatoire parmi les teintes définies
+    hueIndex = Math.floor(rand(hues.length)); // Utiliser l'indice de la teinte
 
-    particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
+    particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hueIndex], i);
   };
 
   const draw = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
@@ -128,7 +132,7 @@ export const Vortex = (props: VortexProps) => {
       i7 = 6 + i,
       i8 = 7 + i,
       i9 = 8 + i;
-    let n, x, y, vx, vy, life, ttl, speed, x2, y2, radius, hue;
+    let n, x, y, vx, vy, life, ttl, speed, x2, y2, radius, hueIndex;
 
     x = particleProps[i];
     y = particleProps[i2];
@@ -141,9 +145,9 @@ export const Vortex = (props: VortexProps) => {
     x2 = x + vx * speed;
     y2 = y + vy * speed;
     radius = particleProps[i8];
-    hue = particleProps[i9];
+    hueIndex = particleProps[i9];
 
-    drawParticle(x, y, x2, y2, life, ttl, radius, hue, ctx);
+    drawParticle(x, y, x2, y2, life, ttl, radius, hues[hueIndex], ctx);
 
     life++;
 
@@ -164,18 +168,22 @@ export const Vortex = (props: VortexProps) => {
     life: number,
     ttl: number,
     radius: number,
-    hue: number,
+    hue: string,
     ctx: CanvasRenderingContext2D
   ) => {
     ctx.save();
-    ctx.lineCap = "round";
-    ctx.lineWidth = radius;
-    ctx.strokeStyle = `hsla(${hue}, 100%, 60%, ${fadeInOut(life, ttl)})`;
+    ctx.fillStyle = hue;
+    ctx.globalAlpha = fadeInOut(life, ttl);
     ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
+    ctx.translate(x2, y2);
+    ctx.moveTo(0, 0);
+    for (let j = 0; j < 5; j++) {
+      ctx.lineTo(0, radius);
+      ctx.translate(0, radius);
+      ctx.rotate((Math.PI * 2 / 5));
+    }
     ctx.closePath();
+    ctx.fill();
     ctx.restore();
   };
 
