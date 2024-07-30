@@ -1,8 +1,8 @@
 import React from "react";
-import { useSeasonColors } from "../../contexts/SeasonColorsContext";
+import useSeasonColors from "../../hooks/useSeasonColors"; 
 import { BackgroundGradient } from "../Motions/BackgroundGradient";
 
-// Définir le type pour les catégories de compétences
+// Define the SkillCategory type
 type SkillCategory =
   | "Langages de Programmation"
   | "Frameworks et Bibliothèques"
@@ -11,31 +11,36 @@ type SkillCategory =
   | "Outils"
   | "Méthodologies";
 
-// Mettre à jour l'interface des props
+  // Define the SkillsCategoryProps interface
 interface SkillsCategoryProps {
   title: SkillCategory;
   skills: string[];
-  icon: React.ReactElement; // Change le type à React.ReactElement
+  icon: React.ReactElement;
 }
-
-const SkillsCategory: React.FC<SkillsCategoryProps> = ({ title, skills, icon }) => {
-  const { text } = useSeasonColors();
+// Define the SkillsCategory component
+const SkillsCategory: React.FC<SkillsCategoryProps> = ({ title, skills, icon }) => { // Destructure the title, skills, and icon props
+  const { text, boxShadow } = useSeasonColors(); // Get the text and boxShadow colors depending on the season
 
   return (
-    <BackgroundGradient className="relative h-full w-full rounded-[15px] p-4 sm:p-10 shadow-lg">
-      {/* Conteneur pour l'icône */}
-      <div className="absolute top-4 left-4 text-2xl">
-        {icon} {/* Affiche l'icône */}
-      </div>
-      <div className="ml-12 mt-4"> {/* Ajoute une marge pour le texte afin qu'il ne chevauche pas l'icône */}
-        <h3 className="text-2xl font-semibold mb-4" style={{ color: text }}>
-          {title}
-        </h3>
-        <ul className="list-disc list-inside space-y-2">
-          {skills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
+    <BackgroundGradient
+      className="relative h-full w-full rounded-[10px] p-4 sm:p-6 shadow-lg font-light"
+      containerClassName="shadow-lg"
+      style={{ boxShadow: `0 4px 8px rgba(${boxShadow}, 0.3)` }} 
+    >
+      <div className="flex items-start space-x-4">
+        <div className="text-xl flex-shrink-0">
+          {icon}
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold mb-2" style={{ color: text }}>
+            {title}
+          </h3>
+          <ul className="list-disc list-inside space-y-1">
+            {skills.map((skill) => (
+              <li key={skill} className="text-sm">{skill}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </BackgroundGradient>
   );

@@ -1,4 +1,3 @@
-// App.jsx
 import './styles/index.scss';
 import React from 'react';
 import { SeasonProvider, useSeasonContext } from './contexts/SeasonContext';

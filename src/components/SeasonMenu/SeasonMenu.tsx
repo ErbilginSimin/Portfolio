@@ -1,13 +1,13 @@
 import React from 'react';
 import useSeason from '../../hooks/useSeason';
-import './SeasonMenu.scss';
 
 function SeasonMenu() {
+  // Get the season and set the season
   const { season, setSeason } = useSeason() as {
     season: string;
     setSeason: (value: string) => void;
   };
-
+// Compare this snippet from /components/SeasonMenu/SeasonMenu.tsx:
   const handleSeasonChange = (event: { target: { value: string; }; }) => {
     setSeason(event.target.value);
   };

@@ -5,6 +5,7 @@ interface SeasonContextProps {
   setSeason: (season: string) => void;
 }
 
+// Create a context with default value of undefined
 const SeasonContext = createContext<SeasonContextProps | undefined>(undefined);
 
 function getSeason() {
@@ -18,10 +19,11 @@ function getSeason() {
 interface SeasonProviderProps {
   children: ReactNode;
 }
-
+// Create a provider component
 export function SeasonProvider({ children }: SeasonProviderProps) {
   const [season, setSeason] = useState<string>(getSeason());
 
+  // Update season daily
   useEffect(() => {
     const interval = setInterval(() => {
       setSeason(getSeason());
@@ -29,7 +31,7 @@ export function SeasonProvider({ children }: SeasonProviderProps) {
     return () => clearInterval(interval);
   }, []);
 
-  console.log('Current season in provider:', season); // Ajoutez ceci pour vérifier la saison dans le provider
+  // console.log('Current season in provider:', season); 
 
   return (
     <SeasonContext.Provider value={{ season, setSeason }}>
@@ -38,6 +40,7 @@ export function SeasonProvider({ children }: SeasonProviderProps) {
   );
 }
 
+// Custom hook to use the season context
 export function useSeasonContext() {
   const context = useContext(SeasonContext);
   if (!context) {

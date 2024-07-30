@@ -5,7 +5,10 @@ import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
 import { Vortex } from '../components/Motions/Vortex';
 import Header from '../components/Header/Header';
 import Skills from '../components/Skills/Skills';
+import About from '../components/About/About';
+import Footer from '../components/Footer/Footer';
 
+// Ask which season it is and render the appropriate animation
 function LandingPage() {
   const { season } = useSeasonContext();
 
@@ -96,6 +99,7 @@ function LandingPage() {
     }
   };
 
+  // Scroll to the next section
   const scrollToNextSection = () => {
     window.scrollBy({
       top: window.innerHeight,
@@ -107,20 +111,22 @@ function LandingPage() {
     <SeasonColorsProvider season={season}>
       <section className="LandingPage relative w-full h-screen text-primary">
         <Header />
-        {renderAnimation()}
+        {renderAnimation()} 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-5 w-5/6">
-          <h2 className='text-5xl pb-4'>Qui suis-je ?</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis, eros in bibendum interdum, nisl erat tempor augue, ut gravida velit odio non nisi. Nullam non purus nec leo egestas sollicitudin. Phasellus elementum pharetra orci.
+          <h2 className='uppercase text-5xl pb-4 font-semibold'>Bienvenue</h2>
+          <p className="text-lg">
+            Je m'appelle Simin et je suis une développeuse web et web mobile fullstack avec une appétence pour le front-end. Si vous avez un projet ou une idée, n'hésitez pas à me contacter, je serai ravie de donner vie à votre projet !
           </p>
         </div>
-        <button onClick={scrollToNextSection} className='animate-bounce absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <button onClick={scrollToNextSection} className='animate-bounce absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> 
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 5.25l7.5 7.5 7.5-7.5M4.5 11.25l7.5 7.5 7.5-7.5" />
           </svg>
         </button>
       </section>
       <Skills />
+      <About />
+      <Footer />
     </SeasonColorsProvider>
   );
 }

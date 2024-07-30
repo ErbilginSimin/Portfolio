@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './Header.scss';
 import { useSeasonContext } from '../../contexts/SeasonContext';
 import { BackgroundGradientAnimation } from '../Motions/Gradient';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
 function Header() {
+  // Set the season context
   const { season } = useSeasonContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -15,9 +15,9 @@ function Header() {
   
 
   return (
-    <header className={`Header absolute top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}>
+    <header className={`Header relative top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}>
       <div className="relative z-20 flex items-center justify-between w-full px-4 md:px-12 py-4 md:py-0 ">
-        <div className='flex items-center'>
+        <div className=' flex items-center'>
           <img src="/SiminLogo.png" alt="Logo Simin" className="w-20 h-20 md:w-24 md:h-24" />
           <h1 className='text-4xl font-bold text-primary'><span className="Name text-6xl font-semibold">S</span>imin</h1>
         </div>
