@@ -23,16 +23,16 @@ function Header() {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <nav className="flex space-x-4 uppercase text-grey text-sm font-semibold">
-            <a href="#intro" className="hover:underline">
+            <a href="#LandingPage" className="hover:underline">
               Introduction
             </a>
-            <a href="#skills" className="hover:underline">
+            <a href="#Skills" className="hover:underline">
               Compétences
             </a>
-            <a href="#about" className="hover:underline">
+            <a href="#About" className="hover:underline">
               À propos
             </a>
-            <a href="#contact" className="hover:underline">
+            <a href="#Contact" className="hover:underline">
               Contact
             </a>
           </nav>

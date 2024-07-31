@@ -57,7 +57,7 @@ const skillsData: Record<SkillCategory, string[]> = {
   "Backend": ["Node.js", "Express"],
   "Base de Données": ["SQL (Postgres, MySQL)", "NoSQL (MongoDB)"],
   "Outils": ["API", "Tests unitaires (JEST)"],
-  "Méthodologies": ["Programmation Orientée Objet (POO)", "Agile", "SCRUM"],
+  "Méthodologies": ["POO", "Agile", "SCRUM"],
 };
 
 function Skills() {
