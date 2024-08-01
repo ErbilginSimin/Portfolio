@@ -28,7 +28,7 @@ function About() {
                     <p className="text-base md:text-lg leading-relaxed text-justify text-primary px-4 md:px-8">
                         Je suis une professionnelle du développement web avec un parcours unique et diversifié qui enrichit ma pratique. Après des études en psychologie, où j'ai approfondi ma compréhension de l'humain, j'ai travaillé en tant qu'assistante de direction dans une start-up. Cette expérience m'a permis de développer des compétences organisationnelles et une belle capacité d'adaptation.
                         <br /><br />
-                        Ma transition vers le développement web est née d'une passion pour la résolution de problèmes complexes et d'un désir constant d'apprendre et d'évoluer. Ce domaine me permet de combiner créativité et rigueur technique, tout en restant stimulée par l'évolution rapide des technologies.
+                        Ma transition vers le développement web est née d'une passion pour <a className="underline decoration-orange-500"> la résolution de problèmes </a> et d'un désir constant <a className="underline decoration-orange-500">d'apprendre et d'évoluer</a>. Ce domaine me permet de combiner <a className="underline decoration-orange-500">créativité et rigueur technique</a>, tout en restant stimulée par l'évolution rapide des technologies.
                         <br /><br />
                         En tant que développeuse web, je mets à profit ma curiosité, ma capacité à analyser les besoins des utilisateurs et mon aptitude à créer des solutions innovantes pour offrir des expériences numériques optimisées. Mon approche est centrée sur la collaboration, la communication et l'engagement envers l'excellence.
                         <br /><br />

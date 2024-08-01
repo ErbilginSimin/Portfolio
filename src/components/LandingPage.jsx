@@ -7,10 +7,20 @@ import Header from '../components/Header/Header';
 import Skills from '../components/Skills/Skills';
 import About from '../components/About/About';
 import Footer from '../components/Footer/Footer';
+import { FlipWords } from '../components/Motions/flip-words';
 
-// Ask which season it is and render the appropriate animation
 function LandingPage() {
   const { season } = useSeasonContext();
+
+  const FlipWordsComponent = () => {
+    const words = ["Bienvenue", "Un Projet ?", "Parlons-en !"];
+
+    return (
+      <span className="inline-block">
+        <FlipWords words={words} loop delay={3000} />
+      </span>
+    );
+  };
 
   const renderAnimation = () => {
     switch (season) {
@@ -111,11 +121,11 @@ function LandingPage() {
     <SeasonColorsProvider season={season}>
       <section className="LandingPage relative w-full h-screen text-primary">
         <Header />
-        {renderAnimation()} 
+        {renderAnimation()}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center p-5 w-5/6">
-          <h2 className='uppercase text-5xl pb-4 font-semibold'>Bienvenue</h2>
+          <h2 className='uppercase text-5xl pb-4 font-semibold'><FlipWordsComponent /></h2>
           <p className="text-lg">
-            Je m'appelle Simin et je suis une développeuse web et web mobile fullstack avec une appétence pour le front-end. Si vous avez un projet ou une idée, n'hésitez pas à me contacter, je serai ravie de donner vie à votre projet !
+            Je m'appelle Simin et je suis une développeuse web et web mobile fullstack avec une appétence pour le front-end. Si vous avez un projet ou une idée, n'hésitez pas à me contacter.
           </p>
         </div>
         <button onClick={scrollToNextSection} className='animate-bounce absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> 
