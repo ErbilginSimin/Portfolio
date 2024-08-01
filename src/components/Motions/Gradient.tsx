@@ -1,18 +1,18 @@
-"use client";
-import { cn } from "@/utils/cn";
-import { useEffect, useRef, useState } from "react";
+'use client';
+import { cn } from '@/utils/cn';
+import { useEffect, useRef, useState } from 'react';
 
 export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = "rgb(108, 0, 162)",
-  gradientBackgroundEnd = "rgb(0, 17, 82)",
-  firstColor = "18, 113, 255",
-  secondColor = "221, 74, 255",
-  thirdColor = "100, 220, 255",
-  fourthColor = "200, 50, 50",
-  fifthColor = "180, 180, 50",
-  pointerColor = "140, 100, 255",
-  size = "100%",
-  blendingValue = "hard-light",
+  gradientBackgroundStart = 'rgb(108, 0, 162)',
+  gradientBackgroundEnd = 'rgb(0, 17, 82)',
+  firstColor = '18, 113, 255',
+  secondColor = '221, 74, 255',
+  thirdColor = '100, 220, 255',
+  fourthColor = '200, 50, 50',
+  fifthColor = '180, 180, 50',
+  pointerColor = '140, 100, 255',
+  size = '100%',
+  blendingValue = 'hard-light',
   children,
   className,
   interactive = true,
@@ -43,17 +43,31 @@ export const BackgroundGradientAnimation = ({
   // Optimized useEffect for setting properties
   useEffect(() => {
     const rootStyle = document.documentElement.style;
-    rootStyle.setProperty("--gradient-background-start", gradientBackgroundStart);
-    rootStyle.setProperty("--gradient-background-end", gradientBackgroundEnd);
-    rootStyle.setProperty("--first-color", firstColor);
-    rootStyle.setProperty("--second-color", secondColor);
-    rootStyle.setProperty("--third-color", thirdColor);
-    rootStyle.setProperty("--fourth-color", fourthColor);
-    rootStyle.setProperty("--fifth-color", fifthColor);
-    rootStyle.setProperty("--pointer-color", pointerColor);
-    rootStyle.setProperty("--size", size);
-    rootStyle.setProperty("--blending-value", blendingValue);
-  }, [gradientBackgroundStart, gradientBackgroundEnd, firstColor, secondColor, thirdColor, fourthColor, fifthColor, pointerColor, size, blendingValue]);
+    rootStyle.setProperty(
+      '--gradient-background-start',
+      gradientBackgroundStart
+    );
+    rootStyle.setProperty('--gradient-background-end', gradientBackgroundEnd);
+    rootStyle.setProperty('--first-color', firstColor);
+    rootStyle.setProperty('--second-color', secondColor);
+    rootStyle.setProperty('--third-color', thirdColor);
+    rootStyle.setProperty('--fourth-color', fourthColor);
+    rootStyle.setProperty('--fifth-color', fifthColor);
+    rootStyle.setProperty('--pointer-color', pointerColor);
+    rootStyle.setProperty('--size', size);
+    rootStyle.setProperty('--blending-value', blendingValue);
+  }, [
+    gradientBackgroundStart,
+    gradientBackgroundEnd,
+    firstColor,
+    secondColor,
+    thirdColor,
+    fourthColor,
+    fifthColor,
+    pointerColor,
+    size,
+    blendingValue,
+  ]);
 
   // Optimized animation loop
   useEffect(() => {
@@ -83,14 +97,18 @@ export const BackgroundGradientAnimation = ({
   return (
     <div
       className={cn(
-        "h-full w-full relative overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
+        'h-full w-full relative overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
         containerClassName
       )}
     >
       <svg className="hidden">
         <defs>
           <filter id="blurMe">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
             <feColorMatrix
               in="blur"
               mode="matrix"
@@ -101,11 +119,11 @@ export const BackgroundGradientAnimation = ({
           </filter>
         </defs>
       </svg>
-      <div className={cn("", className)}>{children}</div>
+      <div className={cn('', className)}>{children}</div>
       <div
         className={cn(
-          "gradients-container h-[60%] w-full blur-lg",
-          isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
+          'gradients-container h-[50%] w-full blur-2xl -z-index-10',
+          isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]'
         )}
       >
         <div
