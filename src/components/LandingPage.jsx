@@ -5,6 +5,7 @@ import Header from '../components/Header/Header';
 import { FlipWords } from '../components/Motions/flip-words';
 import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
 import { Vortex } from '../components/Motions/Vortex';
+import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
 import { SeasonColorsProvider } from '../contexts/SeasonColorsContext';
 import { useSeasonContext } from '../contexts/SeasonContext';
@@ -110,7 +111,6 @@ function LandingPage() {
     }
   };
 
-  // Scroll to the next section
   const scrollToNextSection = () => {
     window.scrollBy({
       top: window.innerHeight,
@@ -124,9 +124,9 @@ function LandingPage() {
         <Header />
         {renderAnimation()}
 
-        <div className="flex flex-col items-center justify-center w-full h-full mt-16">
-          <div className="text-center p-5 w-5/6 bg-white/10 rounded-lg border-0 shadow-lg lg:w-2/4 mb-10">
-            <h2 className="uppercase text-5xl pb-4 font-semibold">
+        <div className="flex flex-col items-center justify-center w-full h-full">
+          <div className="text-center p-5 w-5/6 bg-white/10 rounded-lg border-0 shadow-lg lg:w-2/4 mb-10 py-20">
+            <h2 className="uppercase text-5xl pb-8 font-semibold">
               <FlipWordsComponent />
             </h2>
             <p className="text-lg lg:text-2xl">
@@ -134,13 +134,7 @@ function LandingPage() {
               fullstack avec une appétence pour le front-end. Si vous avez un
               projet ou une idée, n'hésitez pas à me contacter.
             </p>
-          </div>
-
-          <div className="Seasons flex justify-center items-center space-x-10 py-10 bg-transparent">
-            <img src="/Snow.png" alt="Snowflake icon" className="w-10 h-10" />
-            <img src="/Leaf.png" alt="Leaf icon" className="w-10 h-10" />
-            <img src="/Flower.png" alt="Flower icon" className="w-10 h-10" />
-            <img src="/Sun.png" alt="Sun icon" className="w-10 h-10" />
+            <SeasonSelector />
           </div>
         </div>
 

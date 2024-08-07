@@ -40,7 +40,7 @@ export const BackgroundGradient = ({
           backgroundSize: '400% 400%',
         }}
         className={cn(
-          'absolute inset-0 rounded-3xl z-[1] opacity-50 group-hover:opacity-80 blur-sm transition duration-500 will-change-transform'
+          'absolute inset-0 rounded-3xl z-[1] opacity-50 group-hover:opacity-80 blur-lg transition duration-500 will-change-transform'
         )}
       />
       <motion.div

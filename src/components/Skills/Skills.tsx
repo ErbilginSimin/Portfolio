@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSeasonColors } from '../../contexts/SeasonColorsContext';
-import SeasonMenu from '../SeasonMenu/SeasonMenu';
+import SeasonMenu from '../SeasonSelector/SeasonSelector';
 import SkillsCategory from './SkillsCategory';
 
 type SkillCategory =
