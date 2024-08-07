@@ -10,7 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jsonc/recommended-with-jsonc',
-    'plugin:prettier/recommended', // must be the last one
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -42,7 +42,12 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto',
+        endOfLine: 'lf',
+        trailingComma: 'es5',
+        semi: true,
+        useTabs: false,
+        singleQuote: true,
+        tabWidth: 2,
       },
     ],
     'react/react-in-jsx-scope': 0,
@@ -73,5 +78,6 @@ module.exports = {
           'Use typed hooks `useAppDispatch` and `useAppSelector` instead.',
       },
     ],
+    'quote-props': ['error', 'consistent-as-needed'], // Change to 'consistent-as-needed'
   },
 };

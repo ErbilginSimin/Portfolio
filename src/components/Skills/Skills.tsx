@@ -1,15 +1,7 @@
 import React from 'react';
+import { SkillCategory } from 'src/types';
 import { useSeasonColors } from '../../contexts/SeasonColorsContext';
-import SeasonMenu from '../SeasonSelector/SeasonSelector';
 import SkillsCategory from './SkillsCategory';
-
-type SkillCategory =
-  | 'Langages de Programmation'
-  | 'Frameworks et Bibliothèques'
-  | 'Backend'
-  | 'Base de Données'
-  | 'Outils'
-  | 'Méthodologies';
 
 const icons: Record<SkillCategory, React.ReactElement> = {
   'Langages de Programmation': (
@@ -144,6 +136,7 @@ function Skills() {
           Compétences
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* Loop through the skillsData object and display the SkillsCategory component */}
           {Object.entries(skillsData).map(([title, skills]) => (
             <SkillsCategory
               key={title}
@@ -153,7 +146,6 @@ function Skills() {
             />
           ))}
         </div>
-        <SeasonMenu />
       </div>
     </section>
   );

@@ -1,14 +1,7 @@
 import React from 'react';
 import useSeasonColors from '../../hooks/useSeasonColors';
+import { SkillCategory } from '../../types';
 import { BackgroundGradient } from '../Motions/BackgroundGradient';
-
-type SkillCategory =
-  | 'Langages de Programmation'
-  | 'Frameworks et Bibliothèques'
-  | 'Backend'
-  | 'Base de Données'
-  | 'Outils'
-  | 'Méthodologies';
 
 interface SkillsCategoryProps {
   title: SkillCategory;

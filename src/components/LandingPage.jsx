@@ -7,6 +7,7 @@ import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
 import { Vortex } from '../components/Motions/Vortex';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
+import Work from '../components/Work/Work';
 import { SeasonColorsProvider } from '../contexts/SeasonColorsContext';
 import { useSeasonContext } from '../contexts/SeasonContext';
 
@@ -18,7 +19,12 @@ function LandingPage() {
 
     return (
       <span className="inline-block">
-        <FlipWords className="text-primary" words={words} loop delay={3000} />
+        <FlipWords
+          className="text-primary text-4xl"
+          words={words}
+          loop
+          delay={3000}
+        />
       </span>
     );
   };
@@ -160,6 +166,7 @@ function LandingPage() {
       </section>
 
       <Skills />
+      <Work />
       <About />
       <Footer />
     </SeasonColorsProvider>
