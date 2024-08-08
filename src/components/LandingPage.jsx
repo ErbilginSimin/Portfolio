@@ -15,7 +15,7 @@ function LandingPage() {
   const { season } = useSeasonContext();
 
   const FlipWordsComponent = () => {
-    const words = ['Bienvenue', 'Un Projet ?', 'Parlons-en !'];
+    const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
 
     return (
       <span className="inline-block">

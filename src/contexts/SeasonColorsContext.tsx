@@ -1,17 +1,5 @@
 import { createContext, ReactNode, useContext } from 'react';
-
-// use Typescript to define the SeasonColors interface
-interface SeasonColors {
-  background: string;
-  text: string;
-  boxShadow: string;
-  firstColor: string;
-  secondColor: string;
-  thirdColor: string;
-  fourthColor: string;
-  fifthColor: string;
-  pointerColor: string;
-}
+import { SeasonColors } from '../types';
 
 // Call the createContext function to create the SeasonColorsContext
 export const SeasonColorsContext = createContext<SeasonColors | undefined>(

@@ -57,13 +57,13 @@ function Header() {
             <nav className="Nav absolute top-12 right-0 bg-white text-black p-4 rounded shadow-hot z-30">
               <ul className="flex flex-col space-y-2">
                 <li>
-                  <a href="#intro" className="hover:underline">
-                    Introduction
+                  <a href="#Skills" className="hover:underline">
+                    Compétences
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" className="hover:underline">
-                    Compétences
+                  <a href="#Work" className="hover:underline">
+                    Projets
                   </a>
                 </li>
                 <li>
