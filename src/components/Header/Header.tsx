@@ -1,10 +1,10 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
-import { useSeasonContext } from '../../contexts/SeasonContext';
+import { useSeason } from '../../contexts/SeasonContext';
 
 function Header() {
   // Set the season context & burger menu state
-  const { season } = useSeasonContext();
+  const { season } = useSeason();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

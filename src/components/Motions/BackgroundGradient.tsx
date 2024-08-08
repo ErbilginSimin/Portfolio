@@ -1,6 +1,7 @@
 import { cn } from '@/utils/cn';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useSeasonColors } from '../../contexts/SeasonColorsContext';
 
 export const BackgroundGradient = ({
   children,
@@ -13,6 +14,8 @@ export const BackgroundGradient = ({
   containerClassName?: string;
   animate?: boolean;
 }) => {
+  const { background } = useSeasonColors(); // Get the background color for the current season
+
   const variants = {
     initial: {
       backgroundPosition: '0% 50%',
@@ -21,8 +24,6 @@ export const BackgroundGradient = ({
       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
     },
   };
-
-  const gradientColors = `#FF6F61, #FF9A8B, #FFB86C, #FF6F61, #FF9A8B`;
 
   return (
     <div className={cn('relative p-[4px] group', containerClassName)}>
@@ -36,7 +37,7 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(10deg, ${gradientColors})`,
+          background: `linear-gradient(10deg, ${background})`,
           backgroundSize: '400% 400%',
         }}
         className={cn(
@@ -53,7 +54,7 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(45deg, ${gradientColors})`,
+          background: `linear-gradient(45deg, ${background})`,
           backgroundSize: '400% 400%',
         }}
         className={cn(

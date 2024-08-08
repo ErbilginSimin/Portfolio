@@ -42,7 +42,7 @@ function Work() {
     },
   ];
   return (
-    <div className="p-10" style={{ backgroundColor: background, color: text }}>
+    <div className={`p-10 ${background} ${text}`}>
       <h2 className="text-4xl uppercase font-semibold mb-5 text-center pb-5">
         Projets
       </h2>

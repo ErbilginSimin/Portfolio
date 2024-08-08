@@ -1,17 +1,17 @@
-import { useSeasonContext } from '../../contexts/SeasonContext';
+import { useSeason } from '../../contexts/SeasonContext';
 
 const seasons = [
-  { name: 'Spring', icon: '/Flower.png' },
-  { name: 'Summer', icon: '/Sun.png' },
-  { name: 'Autumn', icon: '/Leaf.png' },
-  { name: 'Winter', icon: '/Snow.png' },
+  { name: 'spring', icon: '/Flower.png' },
+  { name: 'summer', icon: '/Sun.png' },
+  { name: 'autumn', icon: '/Leaf.png' },
+  { name: 'winter', icon: '/Snow.png' },
 ];
 
 function SeasonSelector() {
-  const { setSeason } = useSeasonContext();
+  const { setSeason } = useSeason();
 
   const handleSeasonClick = (season: string) => {
-    setSeason(season);
+    setSeason(season as 'spring' | 'summer' | 'autumn' | 'winter');
   };
 
   return (
@@ -21,7 +21,7 @@ function SeasonSelector() {
         <img
           key={season.name}
           src={season.icon}
-          alt={'${season.name} icon'}
+          alt={`${season.name} icon`}
           className="w-10 h-10 cursor-pointer hover:bg-white transform transition duration-300 ease-in-out rounded-md"
           onClick={() => handleSeasonClick(season.name)}
         />
