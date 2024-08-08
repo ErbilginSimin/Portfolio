@@ -10,7 +10,7 @@ function About() {
       style={{ backgroundColor: background }}
     >
       {/* Title */}
-      <h2 className="text-3xl md:text-4xl font-semibold text-primary pb-5 text-center">
+      <h2 className="text-3xl uppercase md:text-4xl font-semibold text-primary pb-5 text-center">
         À propos de moi
       </h2>
 
