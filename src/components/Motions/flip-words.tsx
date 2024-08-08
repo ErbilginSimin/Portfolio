@@ -1,11 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
-export const FlipWords = (
-  { words }: { words: string[] },
-  duration = 3000,
-  className = 'FlipWords'
-) => {
+export const FlipWords = ({
+  words,
+  duration = 1000, // Vous pouvez définir une durée par défaut ici
+  className = 'FlipWords',
+}: {
+  words: string[];
+  duration?: number;
+  className?: string;
+}) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -16,10 +20,14 @@ export const FlipWords = (
   }, [currentWord, words]);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
+    // Lorsque `isAnimating` est false, attendez la durée spécifiée
+    const timer = setTimeout(() => {
+      if (!isAnimating) {
         startAnimation();
-      }, duration);
+      }
+    }, duration);
+
+    return () => clearTimeout(timer);
   }, [isAnimating, duration, startAnimation]);
 
   return (
@@ -41,6 +49,7 @@ export const FlipWords = (
           type: 'spring',
           stiffness: 100,
           damping: 10,
+          duration: duration / 1000, // Convertir la durée en secondes pour l'animation
         }}
         exit={{
           opacity: 0,

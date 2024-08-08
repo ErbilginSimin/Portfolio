@@ -37,18 +37,9 @@ function About() {
             <br />
             <br />
             Ma transition vers le développement web est née d'une passion pour{' '}
-            <a className="underline decoration-orange-500">
-              {' '}
-              la résolution de problèmes{' '}
-            </a>{' '}
-            et d'un désir constant{' '}
-            <a className="underline decoration-orange-500">
-              d'apprendre et d'évoluer
-            </a>
-            . Ce domaine me permet de combiner{' '}
-            <a className="underline decoration-orange-500">
-              créativité et rigueur technique
-            </a>
+            <a> la résolution de problèmes </a> et d'un désir constant{' '}
+            <a>d'apprendre et d'évoluer</a>. Ce domaine me permet de combiner{' '}
+            <a>créativité et rigueur technique</a>
             , tout en restant stimulée par l'évolution rapide des technologies.
             <br />
             <br />

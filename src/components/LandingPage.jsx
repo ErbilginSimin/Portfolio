@@ -20,7 +20,7 @@ function LandingPage() {
     return (
       <span className="inline-block">
         <FlipWords
-          className="text-primary text-4xl"
+          className="text-primary text-xxl"
           words={words}
           loop
           delay={3000}
