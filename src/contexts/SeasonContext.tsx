@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 interface SeasonContextProps {
   season: string;
@@ -31,7 +37,7 @@ export function SeasonProvider({ children }: SeasonProviderProps) {
     return () => clearInterval(interval);
   }, []);
 
-  // console.log('Current season in provider:', season); 
+  // console.log('Current season in provider:', season);
 
   return (
     <SeasonContext.Provider value={{ season, setSeason }}>

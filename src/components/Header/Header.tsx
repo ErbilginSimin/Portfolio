@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { useSeasonContext } from '../../contexts/SeasonContext';
-import { BackgroundGradientAnimation } from '../Motions/Gradient';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
+import { useSeasonContext } from '../../contexts/SeasonContext';
 
 function Header() {
-  // Set the season context
+  // Set the season context & burger menu state
   const { season } = useSeasonContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -12,33 +11,42 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  
-
   return (
-    <header className={`Header relative top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}>
+    <header
+      className={`Header relative top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}
+    >
       <div className="relative z-20 flex items-center justify-between w-full px-4 md:px-12 py-4 md:py-0 ">
-        <div className=' flex items-center'>
-          <img src="/SiminLogo.png" alt="Logo Simin" className="w-20 h-20 md:w-24 md:h-24" />
-          <h1 className='text-4xl font-bold text-primary'><span className="Name text-6xl font-semibold">S</span>imin</h1>
+        <div className=" flex items-center">
+          <img
+            src="/SiminLogo.png"
+            alt="Logo Simin"
+            className="w-20 h-20 md:w-24 md:h-24"
+          />
+          <h1 className="text-4xl font-bold text-primary">
+            <span className="Name text-6xl font-semibold">S</span>imin
+          </h1>
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <nav className="flex space-x-4 uppercase text-grey text-sm font-semibold">
-            <a href="#intro" className="hover:underline">
+            <a href="#LandingPage" className="hover:underline">
               Introduction
             </a>
-            <a href="#skills" className="hover:underline">
+            <a href="#Skills" className="hover:underline">
               Compétences
             </a>
-            <a href="#about" className="hover:underline">
+            <a href="#About" className="hover:underline">
               À propos
             </a>
-            <a href="#contact" className="hover:underline">
+            <a href="#Contact" className="hover:underline">
               Contact
             </a>
           </nav>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="Menu text-white focus:outline-none">
+          <button
+            onClick={toggleMenu}
+            className="Menu text-black focus:outline-none"
+          >
             {isMenuOpen ? (
               <XMarkIcon className="w-6 h-6" />
             ) : (
@@ -69,7 +77,7 @@ function Header() {
         </div>
       </div>
     </header>
-  );  
+  );
 }
 
 export default Header;
