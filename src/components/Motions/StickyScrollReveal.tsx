@@ -59,7 +59,7 @@ export const StickyScroll = ({
   }, [activeCard]);
 
   return (
-    <BackgroundGradient containerClassName="">
+    <BackgroundGradient>
       <motion.div
         className="h-[30rem] overflow-y-auto rounded-3xl flex justify-center relative space-x-10 scrollbar-rounded gap-28 bg-white/95 "
         ref={ref}
@@ -67,7 +67,7 @@ export const StickyScroll = ({
         <div className="relative flex items-start ">
           <div className="max-w-2xl">
             {content.map((item, index) => (
-              <div key={item.title + index} className="my-20">
+              <div key={item.title + index} className="my-20 scroll-mt-10">
                 <motion.h2
                   initial={{
                     opacity: 0,

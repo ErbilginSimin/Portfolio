@@ -14,7 +14,8 @@ export const BackgroundGradient = ({
   containerClassName?: string;
   animate?: boolean;
 }) => {
-  const { background } = useSeasonColors(); // Get the background color for the current season
+  const { firstColor, secondColor, thirdColor, fourthColor, fifthColor } =
+    useSeasonColors(); // Get the colors for the current season
 
   const variants = {
     initial: {
@@ -24,6 +25,14 @@ export const BackgroundGradient = ({
       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
     },
   };
+
+  // Construct the gradient as a string
+  const gradient = `
+    radial-gradient(circle farthest-side at 0% 100%, rgb(${firstColor}), transparent),
+    radial-gradient(circle farthest-side at 100% 0%, rgb(${secondColor}), transparent),
+    radial-gradient(circle farthest-side at 100% 100%, rgb(${thirdColor}), transparent),
+    radial-gradient(circle farthest-side at 0% 0%, rgb(${fourthColor}), rgb(${fifthColor}))
+  `;
 
   return (
     <div className={cn('relative p-[4px] group', containerClassName)}>
@@ -37,11 +46,11 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(10deg, ${background})`,
+          backgroundImage: gradient, // Apply the gradient as a background image
           backgroundSize: '400% 400%',
         }}
         className={cn(
-          'absolute inset-0 rounded-3xl z-[1] opacity-50 group-hover:opacity-80 blur-lg transition duration-500 will-change-transform'
+          'absolute inset-0 rounded-3xl z-[1] opacity-60 group-hover:opacity-100 blur-sm transition duration-500 will-change-transform'
         )}
       />
       <motion.div
@@ -54,7 +63,7 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(45deg, ${background})`,
+          backgroundImage: gradient, // Apply the gradient as a background image
           backgroundSize: '400% 400%',
         }}
         className={cn(

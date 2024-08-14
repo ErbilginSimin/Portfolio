@@ -41,13 +41,15 @@ function Work() {
       ),
     },
   ];
+
   return (
-    <div className={`p-10 ${background} ${text}`}>
-      <h2 className="text-4xl uppercase font-semibold mb-5 text-center pb-5">
+    <section className={`Work p-10 ${background} ${text}`}>
+      <h2 className="text-4xl uppercase font-semibold mb-5 text-center ">
         Projets
       </h2>
       <StickyScroll content={content} />
-    </div>
+    </section>
   );
 }
+
 export default Work;
