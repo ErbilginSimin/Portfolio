@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../components/About/About';
+import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import { FlipWords } from '../components/Motions/flip-words';
@@ -8,19 +9,23 @@ import { Vortex } from '../components/Motions/Vortex';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
 import Work from '../components/Work/Work';
-import { SeasonColorsProvider } from '../contexts/SeasonColorsContext';
-import { useSeasonContext } from '../contexts/SeasonContext';
+import {
+  SeasonColorsProvider,
+  useSeasonColors,
+} from '../contexts/SeasonColorsContext';
+import { useSeason } from '../contexts/SeasonContext';
 
 function LandingPage() {
-  const { season } = useSeasonContext();
+  const { season } = useSeason();
+  const { background, text } = useSeasonColors();
 
   const FlipWordsComponent = () => {
-    const words = ['Bienvenue', 'Un Projet ?', 'Parlons-en !'];
+    const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
 
     return (
       <span className="inline-block">
         <FlipWords
-          className="text-primary text-xxl"
+          className="text-primary text-4xl"
           words={words}
           loop
           delay={3000}
@@ -31,7 +36,7 @@ function LandingPage() {
 
   const renderAnimation = () => {
     switch (season) {
-      case 'Summer':
+      case 'summer':
         return (
           <BackgroundGradientAnimation
             gradientBackgroundStart="rgba(255, 243, 224, 1)"
@@ -49,54 +54,12 @@ function LandingPage() {
             interactive={true}
           />
         );
-      case 'Autumn':
-        return (
-          <BackgroundGradientAnimation
-            gradientBackgroundStart="rgba(255, 150, 75, 1)"
-            gradientBackgroundEnd="rgba(255, 150, 75, 0)"
-            firstColor="255, 140, 0"
-            secondColor="255, 69, 0"
-            thirdColor="139, 69, 19"
-            fourthColor="210, 105, 30"
-            fifthColor="205, 92, 92"
-            pointerColor="255, 140, 0"
-            size="100%"
-            blendingValue="soft-light"
-            className="absolute"
-            containerClassName="absolute inset-0 -z-10"
-          />
-        );
-      case 'Winter':
-        return (
-          <BackgroundGradientAnimation
-            gradientBackgroundStart="rgba(173, 216, 230, 1)"
-            gradientBackgroundEnd="rgba(173, 216, 230, 0)"
-            firstColor="255, 250, 250"
-            secondColor="176, 224, 230"
-            thirdColor="135, 206, 250"
-            fourthColor="0, 191, 255"
-            fifthColor="70, 130, 180"
-            pointerColor="240, 255, 255"
-            size="100%"
-            blendingValue="soft-light"
-            className="absolute"
-            containerClassName="absolute inset-0 -z-10"
-          />
-        );
-      case 'Spring':
-        return (
-          <Vortex
-            particleCount={700}
-            rangeY={100}
-            baseSpeed={0.0}
-            rangeSpeed={1.5}
-            baseRadius={5}
-            rangeRadius={3}
-            backgroundColor="rgba(255, 255, 255, 1)"
-            className="absolute"
-            containerClassName="absolute inset-0 -z-10"
-          />
-        );
+      case 'autumn':
+        return <Vortex />;
+      case 'winter':
+        return <Vortex />;
+      case 'spring':
+        return <Vortex />;
       default:
         return (
           <BackgroundGradientAnimation
@@ -125,7 +88,7 @@ function LandingPage() {
   };
 
   return (
-    <SeasonColorsProvider season={season}>
+    <SeasonColorsProvider>
       <section className="LandingPage relative w-full h-screen text-primary flex flex-col items-center">
         <Header />
         {renderAnimation()}
@@ -168,6 +131,7 @@ function LandingPage() {
       <Skills />
       <Work />
       <About />
+      <Contact />
       <Footer />
     </SeasonColorsProvider>
   );

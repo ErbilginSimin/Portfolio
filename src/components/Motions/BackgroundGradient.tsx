@@ -1,6 +1,7 @@
 import { cn } from '@/utils/cn';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useSeasonColors } from '../../contexts/SeasonColorsContext';
 
 export const BackgroundGradient = ({
   children,
@@ -13,6 +14,9 @@ export const BackgroundGradient = ({
   containerClassName?: string;
   animate?: boolean;
 }) => {
+  const { firstColor, secondColor, thirdColor, fourthColor, fifthColor } =
+    useSeasonColors(); // Get the colors for the current season
+
   const variants = {
     initial: {
       backgroundPosition: '0% 50%',
@@ -22,7 +26,13 @@ export const BackgroundGradient = ({
     },
   };
 
-  const gradientColors = `#FF6F61, #FF9A8B, #FFB86C, #FF6F61, #FF9A8B`;
+  // Construct the gradient as a string
+  const gradient = `
+    radial-gradient(circle farthest-side at 0% 100%, rgb(${firstColor}), transparent),
+    radial-gradient(circle farthest-side at 100% 0%, rgb(${secondColor}), transparent),
+    radial-gradient(circle farthest-side at 100% 100%, rgb(${thirdColor}), transparent),
+    radial-gradient(circle farthest-side at 0% 0%, rgb(${fourthColor}), rgb(${fifthColor}))
+  `;
 
   return (
     <div className={cn('relative p-[4px] group', containerClassName)}>
@@ -36,11 +46,11 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(10deg, ${gradientColors})`,
+          backgroundImage: gradient, // Apply the gradient as a background image
           backgroundSize: '400% 400%',
         }}
         className={cn(
-          'absolute inset-0 rounded-3xl z-[1] opacity-50 group-hover:opacity-80 blur-lg transition duration-500 will-change-transform'
+          'absolute inset-0 rounded-3xl z-[1] opacity-60 group-hover:opacity-100 blur-sm transition duration-500 will-change-transform'
         )}
       />
       <motion.div
@@ -53,7 +63,7 @@ export const BackgroundGradient = ({
           repeatType: 'reverse',
         }}
         style={{
-          background: `linear-gradient(45deg, ${gradientColors})`,
+          backgroundImage: gradient, // Apply the gradient as a background image
           backgroundSize: '400% 400%',
         }}
         className={cn(

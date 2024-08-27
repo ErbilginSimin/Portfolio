@@ -1,10 +1,10 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
-import { useSeasonContext } from '../../contexts/SeasonContext';
+import { useSeason } from '../../contexts/SeasonContext';
 
 function Header() {
   // Set the season context & burger menu state
-  const { season } = useSeasonContext();
+  const { season } = useSeason();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,9 +13,9 @@ function Header() {
 
   return (
     <header
-      className={`Header relative top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}
+      className={`Header relative z-20 top-0 left-0 w-full h-auto md:h-56 z-100 text-primary box-content ${season.toLowerCase()}`}
     >
-      <div className="relative z-20 flex items-center justify-between w-full px-4 md:px-12 py-4 md:py-0 ">
+      <div className="z-20 flex items-center justify-between w-full px-4 md:px-12 py-4 md:py-0 ">
         <div className=" flex items-center">
           <img
             src="/SiminLogo.png"
@@ -28,11 +28,11 @@ function Header() {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <nav className="flex space-x-4 uppercase text-grey text-sm font-semibold">
-            <a href="#LandingPage" className="hover:underline">
-              Introduction
-            </a>
             <a href="#Skills" className="hover:underline">
               Compétences
+            </a>
+            <a href="#Work" className="hover:underline">
+              Projets
             </a>
             <a href="#About" className="hover:underline">
               À propos
@@ -57,13 +57,13 @@ function Header() {
             <nav className="Nav absolute top-12 right-0 bg-white text-black p-4 rounded shadow-hot z-30">
               <ul className="flex flex-col space-y-2">
                 <li>
-                  <a href="#intro" className="hover:underline">
-                    Introduction
+                  <a href="#Skills" className="hover:underline">
+                    Compétences
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" className="hover:underline">
-                    Compétences
+                  <a href="#Work" className="hover:underline">
+                    Projets
                   </a>
                 </li>
                 <li>

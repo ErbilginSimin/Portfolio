@@ -1,8 +1,16 @@
-import { useSeasonContext } from '../contexts/SeasonContext';
+import { useSeason } from '../contexts/SeasonContext';
 
-// Create a custom hook to use the season context
-const useSeason = () => {
-  return useSeasonContext();
+export const useSeasonHook = () => {
+  const { season, setSeason } = useSeason();
+
+  const changeSeason = (
+    newSeason: 'spring' | 'summer' | 'autumn' | 'winter'
+  ) => {
+    setSeason(newSeason);
+  };
+
+  return {
+    season,
+    changeSeason,
+  };
 };
-
-export default useSeason;

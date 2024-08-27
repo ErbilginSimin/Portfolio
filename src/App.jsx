@@ -1,7 +1,7 @@
-import './styles/index.scss';
 import React from 'react';
-import { SeasonProvider, useSeasonContext } from './contexts/SeasonContext';
 import LandingPage from './components/LandingPage';
+import { SeasonProvider, useSeason } from './contexts/SeasonContext';
+import './styles/index.scss';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 }
 
 function MainContent() {
-  const { season } = useSeasonContext();
+  const { season } = useSeason();
 
   return (
     <div className={`app-container ${season.toLowerCase()}`}>

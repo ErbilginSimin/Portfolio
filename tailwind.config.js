@@ -1,13 +1,13 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 const {
   default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+} = require('tailwindcss/lib/util/flattenColorPalette');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/**/*.{js,ts,jsx,tsx}'],
-  darkMode: "class",
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '480px',
@@ -17,10 +17,30 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary : "#23422d"
+        primary: '#23422d',
+        spring: {
+          light: '#a7f3d0',
+          DEFAULT: '#6ee7b7',
+          dark: '#10b981',
+        },
+        summer: {
+          light: '#fde68a',
+          DEFAULT: '#fbbf24',
+          dark: '#f59e0b',
+        },
+        autumn: {
+          light: '#fda58b',
+          DEFAULT: '#f97316',
+          dark: '#ea580c',
+        },
+        winter: {
+          light: '#bfdbfe',
+          DEFAULT: '#3b82f6',
+          dark: '#1e40af',
+        },
       },
       boxShadow: {
-        'hot': '0 20px 25px -5px rgba(248, 185, 78, 0.5), 0 10px 10px -5px rgba(248, 185, 78, 0.4)',
+        hot: '0 20px 25px -5px rgba(248, 185, 78, 0.5), 0 10px 10px -5px rgba(248, 185, 78, 0.4)',
         'inner-thick-white': 'inset 0 0 0 10px white',
       },
       height: {
@@ -31,44 +51,44 @@ module.exports = {
         'custom-screen': 'calc(100vh - 4rem)',
       },
       animation: {
-        first: "moveVertical 30s ease infinite",
-        second: "moveInCircle 20s reverse infinite",
-        third: "moveInCircle 40s linear infinite",
-        fourth: "moveHorizontal 40s ease infinite",
-        fifth: "moveInCircle 20s ease infinite",
+        first: 'moveVertical 30s ease infinite',
+        second: 'moveInCircle 20s reverse infinite',
+        third: 'moveInCircle 40s linear infinite',
+        fourth: 'moveHorizontal 40s ease infinite',
+        fifth: 'moveInCircle 20s ease infinite',
       },
       keyframes: {
         moveHorizontal: {
-          "0%": {
-            transform: "translateX(-50%) translateY(-10%)",
+          '0%': {
+            transform: 'translateX(-50%) translateY(-10%)',
           },
-          "50%": {
-            transform: "translateX(50%) translateY(10%)",
+          '50%': {
+            transform: 'translateX(50%) translateY(10%)',
           },
-          "100%": {
-            transform: "translateX(-50%) translateY(-10%)",
+          '100%': {
+            transform: 'translateX(-50%) translateY(-10%)',
           },
         },
         moveInCircle: {
-          "0%": {
-            transform: "rotate(0deg)",
+          '0%': {
+            transform: 'rotate(0deg)',
           },
-          "50%": {
-            transform: "rotate(180deg)",
+          '50%': {
+            transform: 'rotate(180deg)',
           },
-          "100%": {
-            transform: "rotate(360deg)",
+          '100%': {
+            transform: 'rotate(360deg)',
           },
         },
         moveVertical: {
-          "0%": {
-            transform: "translateY(-50%)",
+          '0%': {
+            transform: 'translateY(-50%)',
           },
-          "50%": {
-            transform: "translateY(50%)",
+          '50%': {
+            transform: 'translateY(50%)',
           },
-          "100%": {
-            transform: "translateY(-50%)",
+          '100%': {
+            transform: 'translateY(-50%)',
           },
         },
       },
@@ -79,12 +99,12 @@ module.exports = {
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 function addVariablesForColors({ addBase, theme }) {
-  let allColors = flattenColorPalette(theme("colors"));
+  let allColors = flattenColorPalette(theme('colors'));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
   addBase({
-    ":root": newVars,
+    ':root': newVars,
   });
 }

@@ -1,56 +1,44 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { getCurrentSeason } from '../utils/CurrentSeason';
+
+type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 
 interface SeasonContextProps {
-  season: string;
-  setSeason: (season: string) => void;
+  season: Season;
+  setSeason: (season: Season) => void;
 }
 
-// Create a context with default value of undefined
 const SeasonContext = createContext<SeasonContextProps | undefined>(undefined);
 
-function getSeason() {
-  const month = new Date().getMonth();
-  if (month >= 5 && month <= 7) return 'Summer';
-  if (month >= 8 && month <= 10) return 'Autumn';
-  if (month >= 11 || month <= 1) return 'Winter';
-  return 'Spring';
-}
+export const SeasonProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [season, setSeason] = useState<Season>(getCurrentSeason());
 
-interface SeasonProviderProps {
-  children: ReactNode;
-}
-// Create a provider component
-export function SeasonProvider({ children }: SeasonProviderProps) {
-  const [season, setSeason] = useState<string>(getSeason());
-
-  // Update season daily
+  // Update the season if the date changes (e.g., user visits the site on a new day)
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSeason(getSeason());
-    }, 86400000); // Check daily
+    const interval = setInterval(
+      () => {
+        const currentSeason = getCurrentSeason();
+        setSeason(currentSeason);
+      },
+      1000 * 60 * 60 * 24
+    ); // Check once a day
+
     return () => clearInterval(interval);
   }, []);
-
-  // console.log('Current season in provider:', season);
 
   return (
     <SeasonContext.Provider value={{ season, setSeason }}>
       {children}
     </SeasonContext.Provider>
   );
-}
+};
 
-// Custom hook to use the season context
-export function useSeasonContext() {
+export const useSeason = (): SeasonContextProps => {
   const context = useContext(SeasonContext);
   if (!context) {
-    throw new Error('useSeasonContext must be used within a SeasonProvider');
+    throw new Error('useSeason must be used within a SeasonProvider');
   }
   return context;
-}
+};
