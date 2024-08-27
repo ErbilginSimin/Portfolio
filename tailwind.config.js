@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors');
 const {
   default: flattenColorPalette,
 } = require('tailwindcss/lib/util/flattenColorPalette');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -94,7 +95,20 @@ module.exports = {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [
+    plugin(function ({
+      addUtilities,
+      addComponents,
+      e,
+      config,
+      addBase,
+      theme,
+    }) {
+      addVariablesForColors({ addBase, theme });
+    }),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries'),
+  ],
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

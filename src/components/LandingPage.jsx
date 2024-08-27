@@ -127,10 +127,10 @@ function LandingPage() {
           </svg>
         </button>
       </section>
-
-      <Skills />
       <Work />
+      <Skills />
       <About />
+
       <Contact />
       <Footer />
     </SeasonColorsProvider>
