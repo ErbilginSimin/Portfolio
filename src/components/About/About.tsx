@@ -32,7 +32,7 @@ function About() {
             organisationnelles et une belle capacité d'adaptation.
             <br />
             <br />
-            Ma transition vers le développement web est née d'une passion pour{' '}
+            Ma transition vers le développement web est née d'un attrait pour{' '}
             <a> la résolution de problèmes </a> et d'un désir constant{' '}
             <a>d'apprendre et d'évoluer</a>. Ce domaine me permet de combiner{' '}
             <a>créativité et rigueur technique</a>
