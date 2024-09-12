@@ -18,7 +18,7 @@ import { useSeason } from '../contexts/SeasonContext';
 function LandingPage() {
   const { season } = useSeason();
   const { background, text } = useSeasonColors();
-  console.log(season);
+  // console.log(season);
 
   const FlipWordsComponent = () => {
     const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
