@@ -4,7 +4,7 @@ function About() {
   const { background } = useSeasonColors();
 
   return (
-    <div id="About" className={`${background} relative p-6 lg:p-12`}>
+    <div id="About" className={`${background} relative p-6 lg:p-12 shadow-lg`}>
       {/* Title */}
       <h2 className="text-3xl uppercase md:text-4xl font-semibold text-primary pb-5 text-center">
         À propos de moi

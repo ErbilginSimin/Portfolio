@@ -18,6 +18,7 @@ import { useSeason } from '../contexts/SeasonContext';
 function LandingPage() {
   const { season } = useSeason();
   const { background, text } = useSeasonColors();
+  console.log(season);
 
   const FlipWordsComponent = () => {
     const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
@@ -40,7 +41,7 @@ function LandingPage() {
         return (
           <BackgroundGradientAnimation
             gradientBackgroundStart="rgba(255, 243, 224, 1)"
-            gradientBackgroundEnd="rgba(255, 255, 255, 0)"
+            gradientBackgroundEnd="rgba255, 243, 224, 0)"
             firstColor="255, 204, 92"
             secondColor="255, 69, 0"
             thirdColor="255, 128, 0"

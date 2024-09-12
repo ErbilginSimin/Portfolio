@@ -3,8 +3,8 @@ import { cn } from '@/utils/cn';
 import { useEffect, useRef, useState } from 'react';
 
 export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = 'rgb(108, 0, 162)',
-  gradientBackgroundEnd = 'rgb(0, 17, 82)',
+  gradientBackgroundStart = 'rgb(254,248,238)',
+  gradientBackgroundEnd = 'rgb(254,248,238)', // Couleur de fond de l'été
   firstColor = '18, 113, 255',
   secondColor = '221, 74, 255',
   thirdColor = '100, 220, 255',
@@ -97,9 +97,12 @@ export const BackgroundGradientAnimation = ({
   return (
     <div
       className={cn(
-        'h-full w-full relative overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
+        'h-full w-full relative overflow-hidden',
         containerClassName
       )}
+      style={{
+        background: `linear-gradient(40deg, ${gradientBackgroundStart}, ${gradientBackgroundEnd})`,
+      }}
     >
       <svg className="hidden">
         <defs>
@@ -122,7 +125,7 @@ export const BackgroundGradientAnimation = ({
       <div className={cn('', className)}>{children}</div>
       <div
         className={cn(
-          'gradients-container h-[50%] w-full blur-2xl -z-index-10',
+          'gradients-container h-[50%] w-full -z-index-10',
           isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]'
         )}
       >
