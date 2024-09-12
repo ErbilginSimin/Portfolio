@@ -17,22 +17,21 @@ const SkillsCategory: React.FC<SkillsCategoryProps> = ({
   const { text } = useSeasonColors();
 
   return (
-    <BackgroundGradient className="relative h-full w-full rounded-[20px] p-4 sm:p-6 font-light bg-white/95">
-      <div className="flex items-start space-x-4">
-        <div className="text-xl flex-shrink-0">{icon}</div>
-        <div>
-          <h3 className="text-lg font-semibold mb-2" style={{ color: text }}>
-            {title}
-          </h3>
-          <ul className="list-disc list-inside space-y-1">
-            {skills.map((skill) => (
-              <li key={skill} className="text-sm">
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <BackgroundGradient className="relative h-full w-full p-4 sm:p-6 font-light bg-white rounded-[20px] flex flex-col justify-start">
+      <div className="flex items-center mb-4">
+        <div className="text-xl flex-shrink-0 w-6 h-6 mr-2">{icon}</div>
+        <h3 className="text-lg font-semibold" style={{ color: text }}>
+          {title}
+        </h3>
       </div>
+
+      <ul className="list-disc list-inside space-y-1">
+        {skills.map((skill) => (
+          <li key={skill} className="text-sm">
+            {skill}
+          </li>
+        ))}
+      </ul>
     </BackgroundGradient>
   );
 };
