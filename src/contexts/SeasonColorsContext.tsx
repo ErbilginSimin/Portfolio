@@ -14,7 +14,7 @@ const seasonColors = {
     pointerColor: '0, 0, 255',
   },
   summer: {
-    background: 'bg-[rgb(254,248,238)]',
+    background: 'bg-[rgb(255,255,255)]',
     text: 'text-[rgb(35,67,45)]',
     boxShadow: 'shadow-lg',
     firstColor: '255, 204, 92',

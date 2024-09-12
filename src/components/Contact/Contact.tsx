@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSeasonColors } from '../../contexts/SeasonColorsContext';
-import { HoverBorderGradient } from '../Motions/hover-border-gradient';
 
 function Contact() {
   const [lastname, setLastname] = useState('');
@@ -14,18 +13,19 @@ function Contact() {
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
-    const contactData = { lastname, firstname, email, message };
+    const contactData = new FormData();
+    contactData.append('lastname', lastname);
+    contactData.append('firstname', firstname);
+    contactData.append('email', email);
+    contactData.append('message', message);
 
     try {
-      const response = await fetch('http://localhost:8000/contact/php', {
+      const response = await fetch('http://localhost:8000/contact.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contactData),
+        body: contactData,
       });
 
-      const result = await response.json();
+      const result = await response.text();
       if (response.ok) {
         setResponseMessage('Votre message a été envoyé avec succès');
       } else {
@@ -41,21 +41,22 @@ function Contact() {
       id="Contact"
       className={`${background} relative p-4 sm:p-6 md:p-8 lg:p-12 flex justify-center`}
     >
-      <div className="form bg-white w-full max-w-lg p-6 sm:p-8 lg:p-12 rounded-lg shadow-md">
+      <div className="form  bg-white w-full max-w-lg p-6 sm:p-8 lg:p-12 rounded-lg shadow-md">
         <h2 className="text-primary text-2xl font-bold text-center mb-4">
           Contactez-moi
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
-              htmlFor="name"
+              htmlFor="lastname"
               className="block text-sm font-medium text-gray-700"
             >
               Nom
             </label>
             <input
               type="text"
-              id="name"
+              id="lastname"
+              placeholder="Doe"
               value={lastname}
               onChange={(event) => setLastname(event.target.value)}
               required
@@ -73,6 +74,7 @@ function Contact() {
             <input
               type="text"
               id="firstname"
+              placeholder="Jane"
               value={firstname}
               onChange={(event) => setFirstname(event.target.value)}
               required
@@ -90,6 +92,7 @@ function Contact() {
             <input
               type="email"
               id="email"
+              placeholder="exemple@mail.com"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               required
@@ -106,6 +109,7 @@ function Contact() {
             </label>
             <textarea
               id="message"
+              placeholder="Votre message..."
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               required
@@ -115,13 +119,9 @@ function Contact() {
           </div>
 
           <div className="flex justify-center">
-            <HoverBorderGradient
-              as="button"
-              containerClassName="w-full"
-              className="w-full"
-            >
+            <button className="btn btn-primary bg-black size-2/3 text-white rounded-lg py-2 ">
               Envoyer
-            </HoverBorderGradient>
+            </button>
           </div>
 
           {responseMessage && (

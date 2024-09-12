@@ -1,10 +1,10 @@
 import { useSeason } from '../../contexts/SeasonContext';
 
 const seasons = [
-  { name: 'spring', icon: '/Flower.png' },
-  { name: 'summer', icon: '/Sun.png' },
-  { name: 'autumn', icon: '/Leaf.png' },
-  { name: 'winter', icon: '/Snow.png' },
+  { name: 'spring', icon: '/Flower.svg' },
+  { name: 'summer', icon: '/Sun.svg' },
+  { name: 'autumn', icon: '/Leaf.svg' },
+  { name: 'winter', icon: '/Snow.svg' },
 ];
 
 function SeasonSelector() {
