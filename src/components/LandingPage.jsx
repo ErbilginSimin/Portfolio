@@ -3,9 +3,9 @@ import About from '../components/About/About';
 import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import { BackgroundBeamsWithCollision } from '../components/Motions/BackgroundBeam';
 import { FlipWords } from '../components/Motions/flip-words';
 import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
-import { Vortex } from '../components/Motions/Vortex';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
 import {
@@ -55,7 +55,7 @@ function LandingPage() {
           />
         );
       case 'autumn':
-        return <Vortex />;
+        return <BackgroundBeamsWithCollision className="absolute" />;
       case 'winter':
         return <Vortex />;
       case 'spring':

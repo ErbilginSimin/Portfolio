@@ -25,15 +25,15 @@ const seasonColors = {
     pointerColor: '0, 0, 139',
   },
   autumn: {
-    background: 'bg-gradient-to-r from-orange-300 to-orange-500',
-    text: 'text-orange-800',
+    background: 'bg-gradient-to-b from-[#f5f5f5] to-[#ffffff]',
+    text: 'text-black',
     boxShadow: 'shadow-lg',
-    firstColor: '255, 127, 80',
-    secondColor: '255, 99, 71',
-    thirdColor: '255, 69, 0',
-    fourthColor: '255, 228, 196',
-    fifthColor: '255, 255, 240',
-    pointerColor: '165, 42, 42',
+    firstColor: '255, 165, 0', // Orange automnal
+    secondColor: '95, 158, 160', // Bleu-gris
+    thirdColor: '176, 196, 222', // Bleu clair/gris
+    fourthColor: '245, 245, 245', // Blanc très léger
+    fifthColor: '224, 224, 224', // Gris clair
+    pointerColor: '139, 69, 19', // Brun
   },
   winter: {
     background: 'bg-gradient-to-r from-blue-300 to-blue-500',
