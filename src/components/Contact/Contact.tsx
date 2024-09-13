@@ -57,7 +57,7 @@ function Contact() {
           <div>
             <label
               htmlFor="lastname"
-              className="block text-sm font-medium text-white bold"
+              className="block text-md font-bold text-white"
             >
               Nom
             </label>
@@ -75,7 +75,7 @@ function Contact() {
           <div>
             <label
               htmlFor="firstname"
-              className="block text-sm font-medium text-white"
+              className="block text-sm font-bold text-white"
             >
               Prénom
             </label>
@@ -93,7 +93,7 @@ function Contact() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-white"
+              className="block text-md font-bold text-white"
             >
               Email
             </label>
@@ -111,7 +111,7 @@ function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-white"
+              className="block text-md font-bold text-white"
             >
               Message
             </label>

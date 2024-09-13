@@ -218,7 +218,7 @@ const CollisionMechanism = React.forwardRef<
         }}
         className={cn(
           'absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-[#5F9EA0] via-[#B0C4DE] to-transparent',
-          // Teintes bleu/gris pour l'effet de pluie
+
           beamOptions.className
         )}
       />

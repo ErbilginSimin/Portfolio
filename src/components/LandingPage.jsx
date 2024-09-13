@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 import { BackgroundBeamsWithCollision } from '../components/Motions/BackgroundBeam';
 import { FlipWords } from '../components/Motions/flip-words';
 import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
+import { SparklesCore } from '../components/Motions/Snow';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
 import {
@@ -17,7 +18,7 @@ import { useSeason } from '../contexts/SeasonContext';
 function LandingPage() {
   const { season } = useSeason();
   const { background, text } = useSeasonColors();
-  // console.log(season);
+  console.log(text);
 
   const FlipWordsComponent = () => {
     const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
@@ -25,7 +26,8 @@ function LandingPage() {
     return (
       <span className="inline-block">
         <FlipWords
-          className="text-primary text-4xl"
+          className="text-4xl"
+          style={{ color: text }}
           words={words}
           loop
           delay={3000}
@@ -40,7 +42,7 @@ function LandingPage() {
         return (
           <BackgroundGradientAnimation
             gradientBackgroundStart="rgba(255, 243, 224, 1)"
-            gradientBackgroundEnd="rgba255, 243, 224, 0)"
+            gradientBackgroundEnd="rgba(255, 243, 224, 0)"
             firstColor="255, 204, 92"
             secondColor="255, 69, 0"
             thirdColor="255, 128, 0"
@@ -49,34 +51,28 @@ function LandingPage() {
             pointerColor="255, 255, 224, 0.9"
             size="100%"
             blendingValue="hard-light"
-            className="absolute"
+            className="absolute inset-0 z-0"
             containerClassName="absolute inset-0 -z-10"
             interactive={true}
           />
         );
       case 'autumn':
-        return <BackgroundBeamsWithCollision className="absolute" />;
-      case 'winter':
-        return <Vortex />;
-      case 'spring':
-        return <Vortex />;
-      default:
         return (
-          <BackgroundGradientAnimation
-            gradientBackgroundStart="rgba(255, 204, 128, 1)"
-            gradientBackgroundEnd="rgba(255, 204, 128, 0)"
-            firstColor="255, 215, 0"
-            secondColor="255, 140, 0"
-            thirdColor="255, 69, 0"
-            fourthColor="255, 99, 71"
-            fifthColor="255, 160, 122"
-            pointerColor="255, 215, 0"
-            size="100%"
-            blendingValue="soft-light"
-            className="absolute"
-            containerClassName="absolute inset-0 -z-10"
+          <BackgroundBeamsWithCollision
+            className="absolute inset-0 -z-10"
+            containerClassName="absolute inset-0"
           />
         );
+      case 'winter':
+        return (
+          <SparklesCore
+            size="100%"
+            className="absolute inset-0 -z-10"
+            containerClassName="absolute inset-0"
+          />
+        );
+      case 'spring':
+        return <Vortex className="absolute inset-0 z-0" />;
     }
   };
 
@@ -89,12 +85,12 @@ function LandingPage() {
 
   return (
     <SeasonColorsProvider>
-      <section className="LandingPage relative w-full h-screen text-primary flex flex-col items-center">
+      <section className="LandingPage relative w-full h-screen flex flex-col items-center">
         <Header />
         {renderAnimation()}
 
         <div className="flex flex-col items-center justify-center w-full h-full">
-          <div className="text-center p-5 w-5/6 bg-white/10 rounded-lg border-0 shadow-lg lg:w-2/4 mb-10 py-20">
+          <div className="text-center p-5 w-5/6 z-0 bg-white/50 rounded-lg border-0 shadow-lg lg:w-2/4 mb-10 py-20">
             <h2 className="uppercase text-5xl pb-8 font-semibold">
               <FlipWordsComponent />
             </h2>
@@ -109,6 +105,7 @@ function LandingPage() {
 
         <button
           onClick={scrollToNextSection}
+          style={{ color: text }}
           className="animate-bounce absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-5"
         >
           <svg

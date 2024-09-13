@@ -28,23 +28,23 @@ const seasonColors = {
     background: 'bg-gradient-to-b from-[#f5f5f5] to-[#ffffff]',
     text: 'text-black',
     boxShadow: 'shadow-lg',
-    firstColor: '255, 165, 0', // Orange automnal
-    secondColor: '95, 158, 160', // Bleu-gris
-    thirdColor: '176, 196, 222', // Bleu clair/gris
-    fourthColor: '245, 245, 245', // Blanc très léger
-    fifthColor: '224, 224, 224', // Gris clair
-    pointerColor: '139, 69, 19', // Brun
+    firstColor: '255, 165, 0',
+    secondColor: '95, 158, 160',
+    thirdColor: '176, 196, 222',
+    fourthColor: '245, 245, 245',
+    fifthColor: '224, 224, 224',
+    pointerColor: '139, 69, 19',
   },
   winter: {
-    background: 'bg-gradient-to-r from-blue-300 to-blue-500',
+    background: 'bg-[#000a19]',
     text: 'text-white',
     boxShadow: 'shadow-lg',
-    firstColor: '173, 216, 230',
-    secondColor: '135, 206, 250',
-    thirdColor: '0, 191, 255',
-    fourthColor: '70, 130, 180',
-    fifthColor: '176, 224, 230',
-    pointerColor: '25, 25, 112',
+    firstColor: '15, 82, 186', // Un bleu plus foncé et froid
+    secondColor: '173, 216, 230', // Un bleu glacé très pâle
+    thirdColor: '0, 191, 255', // Un bleu cyan froid
+    fourthColor: '70, 130, 180', // Un bleu acier froid
+    fifthColor: '144, 202, 249', // Un bleu clair avec un effet glacé
+    pointerColor: '15, 82, 186', // Pour les interactions avec un bleu foncé
   },
 };
 

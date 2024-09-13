@@ -1,3 +1,4 @@
+'use client';
 import { cn } from '@/utils/cn';
 import type { Container, SingleOrMultiple } from '@tsparticles/engine';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
@@ -50,7 +51,10 @@ export const SparklesCore = (props: ParticlesProps) => {
 
   const generatedId = useId();
   return (
-    <motion.div animate={controls} className={cn('opacity-0', className)}>
+    <motion.div
+      animate={controls}
+      className={cn('h-full w-full relative overflow-hidden', className)}
+    >
       {init && (
         <Particles
           id={id || generatedId}
@@ -59,7 +63,7 @@ export const SparklesCore = (props: ParticlesProps) => {
           options={{
             background: {
               color: {
-                value: background || '#0d47a1',
+                value: background || '#000a19',
               },
             },
             fullScreen: {
