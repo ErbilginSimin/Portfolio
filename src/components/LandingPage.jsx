@@ -8,7 +8,6 @@ import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
 import { Vortex } from '../components/Motions/Vortex';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
-import Work from '../components/Work/Work';
 import {
   SeasonColorsProvider,
   useSeasonColors,
@@ -128,7 +127,7 @@ function LandingPage() {
           </svg>
         </button>
       </section>
-      <Work />
+      {/* <Work /> */}
       <Skills />
       <About />
 

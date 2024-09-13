@@ -4,7 +4,7 @@ import { useSeason } from './SeasonContext';
 const seasonColors = {
   spring: {
     background: 'bg-gradient-to-r from-green-300 to-green-500',
-    text: 'text-green-800',
+    text: 'text-white',
     boxShadow: 'shadow-lg',
     firstColor: '0, 204, 92',
     secondColor: '0, 69, 0',
@@ -37,7 +37,7 @@ const seasonColors = {
   },
   winter: {
     background: 'bg-gradient-to-r from-blue-300 to-blue-500',
-    text: 'text-blue-800',
+    text: 'text-white',
     boxShadow: 'shadow-lg',
     firstColor: '173, 216, 230',
     secondColor: '135, 206, 250',

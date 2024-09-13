@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSeasonColors } from '../../contexts/SeasonColorsContext';
+import { BackgroundGradient } from '../Motions/BackgroundGradient';
 
 function Contact() {
   const [lastname, setLastname] = useState('');
@@ -13,19 +14,22 @@ function Contact() {
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
-    const contactData = new FormData();
-    contactData.append('lastname', lastname);
-    contactData.append('firstname', firstname);
-    contactData.append('email', email);
-    contactData.append('message', message);
+    const contactData = {
+      lastname,
+      firstname,
+      email,
+      message,
+    };
 
     try {
-      const response = await fetch('http://localhost:8000/contact.php', {
+      const response = await fetch('http://localhost:3001/send-email', {
         method: 'POST',
-        body: contactData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
       });
 
-      const result = await response.text();
       if (response.ok) {
         setResponseMessage('Votre message a été envoyé avec succès');
       } else {
@@ -41,15 +45,19 @@ function Contact() {
       id="Contact"
       className={`${background} relative p-4 sm:p-6 md:p-8 lg:p-12 flex justify-center`}
     >
-      <div className="form  bg-white w-full max-w-lg p-6 sm:p-8 lg:p-12 rounded-lg shadow-md">
-        <h2 className="text-primary text-2xl font-bold text-center mb-4">
+      <BackgroundGradient
+        containerClassName="w-full max-w-lg"
+        className="p-6 sm:p-8 lg:p-12 "
+      >
+        <h2 className="text-white text-2xl font-bold text-center mb-4">
           Contactez-moi
         </h2>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="lastname"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white bold"
             >
               Nom
             </label>
@@ -67,7 +75,7 @@ function Contact() {
           <div>
             <label
               htmlFor="firstname"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Prénom
             </label>
@@ -85,7 +93,7 @@ function Contact() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Email
             </label>
@@ -103,7 +111,7 @@ function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Message
             </label>
@@ -119,7 +127,7 @@ function Contact() {
           </div>
 
           <div className="flex justify-center">
-            <button className="btn btn-primary bg-black size-2/3 text-white rounded-lg py-2 ">
+            <button className="btn btn-primary bg-white size-2/3 text-primary rounded-lg py-2">
               Envoyer
             </button>
           </div>
@@ -130,7 +138,7 @@ function Contact() {
             </p>
           )}
         </form>
-      </div>
+      </BackgroundGradient>
     </section>
   );
 }

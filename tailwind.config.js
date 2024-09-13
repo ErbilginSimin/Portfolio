@@ -100,6 +100,12 @@ module.exports = {
           },
         },
       },
+      textShadow: {
+        'white-outline':
+          '2px 2px 0 white, -2px -2px 0 white, -2px 2px 0 white, 2px -2px 0 white',
+        'white-outline-sm':
+          '1px 1px 0 white, -1px -1px 0 white, -1px 1px 0 white, 1px -1px 0 white',
+      },
     },
   },
   plugins: [
@@ -112,6 +118,19 @@ module.exports = {
       theme,
     }) {
       addVariablesForColors({ addBase, theme });
+
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow:
+            '2px 2px 0 white, -2px -2px 0 white, -2px 2px 0 white, 2px -2px 0 white',
+        },
+        '.text-shadow-sm': {
+          textShadow:
+            '1px 1px 0 white, -1px -1px 0 white, -1px 1px 0 white, 1px -1px 0 white',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
     }),
     require('@tailwindcss/forms'),
     require('@tailwindcss/container-queries'),

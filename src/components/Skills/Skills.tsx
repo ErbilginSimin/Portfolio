@@ -132,7 +132,7 @@ function Skills() {
       style={{ backgroundColor: background }}
     >
       <div className="container size-10/12 mx-auto px-4">
-        <h2 className=" text-4xl uppercase font-semibold mb-5 text-center pb-5">
+        <h2 className="text-4xl uppercase font-semibold mb-5 text-center pb-5 relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-primary after:left-0 after:bottom-0 after:transform after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100">
           Compétences
         </h2>
 

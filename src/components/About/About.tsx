@@ -4,9 +4,9 @@ function About() {
   const { background } = useSeasonColors();
 
   return (
-    <div id="About" className={`${background} relative p-6 lg:p-12 shadow-lg`}>
+    <div id="About" className={`${background} relative p-6 lg:p-12 `}>
       {/* Title */}
-      <h2 className="text-3xl uppercase md:text-4xl font-semibold text-primary pb-5 text-center">
+      <h2 className="text-4xl uppercase font-semibold mb-5 text-center pb-5 relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-primary after:left-0 after:bottom-0 after:transform after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100">
         À propos de moi
       </h2>
 
@@ -17,12 +17,12 @@ function About() {
           <img
             src="/Portrait1.png"
             alt="Photo de moi"
-            className="w-full max-w-xs md:max-w-sm lg:max-w-full object-cover "
+            className="w-10/12 max-w-xs md:max-w-sm lg:max-w-full object-cover rounded-full shadow-lg"
           />
         </div>
 
         {/* Text Section */}
-        <div className="flex-1">
+        <div className="flex-1 ">
           <p className="text-base md:text-lg leading-relaxed text-justify text-primary px-4 md:px-8">
             Je suis une professionnelle du développement web avec un parcours
             unique et diversifié qui enrichit ma pratique. Après des études en
