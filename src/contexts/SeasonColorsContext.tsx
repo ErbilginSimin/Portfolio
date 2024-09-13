@@ -4,7 +4,7 @@ import { useSeason } from './SeasonContext';
 const seasonColors = {
   spring: {
     background: 'bg-gradient-to-r from-green-300 to-green-500',
-    text: 'text-green-800',
+    text: 'text-white',
     boxShadow: 'shadow-lg',
     firstColor: '0, 204, 92',
     secondColor: '0, 69, 0',
@@ -25,26 +25,26 @@ const seasonColors = {
     pointerColor: '0, 0, 139',
   },
   autumn: {
-    background: 'bg-gradient-to-r from-orange-300 to-orange-500',
-    text: 'text-orange-800',
+    background: 'bg-gradient-to-b from-[#f5f5f5] to-[#ffffff]',
+    text: 'text-black',
     boxShadow: 'shadow-lg',
-    firstColor: '255, 127, 80',
-    secondColor: '255, 99, 71',
-    thirdColor: '255, 69, 0',
-    fourthColor: '255, 228, 196',
-    fifthColor: '255, 255, 240',
-    pointerColor: '165, 42, 42',
+    firstColor: '255, 165, 0',
+    secondColor: '95, 158, 160',
+    thirdColor: '176, 196, 222',
+    fourthColor: '245, 245, 245',
+    fifthColor: '224, 224, 224',
+    pointerColor: '139, 69, 19',
   },
   winter: {
-    background: 'bg-gradient-to-r from-blue-300 to-blue-500',
-    text: 'text-blue-800',
+    background: 'bg-[#000a19]',
+    text: 'text-white',
     boxShadow: 'shadow-lg',
-    firstColor: '173, 216, 230',
-    secondColor: '135, 206, 250',
-    thirdColor: '0, 191, 255',
-    fourthColor: '70, 130, 180',
-    fifthColor: '176, 224, 230',
-    pointerColor: '25, 25, 112',
+    firstColor: '15, 82, 186', // Un bleu plus foncé et froid
+    secondColor: '173, 216, 230', // Un bleu glacé très pâle
+    thirdColor: '0, 191, 255', // Un bleu cyan froid
+    fourthColor: '70, 130, 180', // Un bleu acier froid
+    fifthColor: '144, 202, 249', // Un bleu clair avec un effet glacé
+    pointerColor: '15, 82, 186', // Pour les interactions avec un bleu foncé
   },
 };
 

@@ -17,29 +17,6 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
-      colors: {
-        primary: '#23422d',
-        spring: {
-          light: '#a7f3d0',
-          DEFAULT: '#6ee7b7',
-          dark: '#10b981',
-        },
-        summer: {
-          light: '#fde68a',
-          DEFAULT: '#fbbf24',
-          dark: '#f59e0b',
-        },
-        autumn: {
-          light: '#fda58b',
-          DEFAULT: '#f97316',
-          dark: '#ea580c',
-        },
-        winter: {
-          light: '#bfdbfe',
-          DEFAULT: '#3b82f6',
-          dark: '#1e40af',
-        },
-      },
       boxShadow: {
         hot: '0 20px 25px -5px rgba(248, 185, 78, 0.5), 0 10px 10px -5px rgba(248, 185, 78, 0.4)',
         'inner-thick-white': 'inset 0 0 0 10px white',
@@ -100,6 +77,12 @@ module.exports = {
           },
         },
       },
+      textShadow: {
+        'white-outline':
+          '2px 2px 0 white, -2px -2px 0 white, -2px 2px 0 white, 2px -2px 0 white',
+        'white-outline-sm':
+          '1px 1px 0 white, -1px -1px 0 white, -1px 1px 0 white, 1px -1px 0 white',
+      },
     },
   },
   plugins: [
@@ -112,6 +95,19 @@ module.exports = {
       theme,
     }) {
       addVariablesForColors({ addBase, theme });
+
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow:
+            '2px 2px 0 white, -2px -2px 0 white, -2px 2px 0 white, 2px -2px 0 white',
+        },
+        '.text-shadow-sm': {
+          textShadow:
+            '1px 1px 0 white, -1px -1px 0 white, -1px 1px 0 white, 1px -1px 0 white',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
     }),
     require('@tailwindcss/forms'),
     require('@tailwindcss/container-queries'),
