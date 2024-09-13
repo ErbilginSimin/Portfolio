@@ -39,12 +39,12 @@ const seasonColors = {
     background: 'bg-[#000a19]',
     text: 'text-white',
     boxShadow: 'shadow-lg',
-    firstColor: '15, 82, 186', // Un bleu plus foncé et froid
-    secondColor: '173, 216, 230', // Un bleu glacé très pâle
-    thirdColor: '0, 191, 255', // Un bleu cyan froid
-    fourthColor: '70, 130, 180', // Un bleu acier froid
-    fifthColor: '144, 202, 249', // Un bleu clair avec un effet glacé
-    pointerColor: '15, 82, 186', // Pour les interactions avec un bleu foncé
+    firstColor: '50, 150, 200', // Bleu avec une teinte verte
+    secondColor: '100, 200, 150', // Vert clair évoquant les aurores boréales
+    thirdColor: '150, 200, 255', // Bleu ciel lumineux
+    fourthColor: '180, 100, 255', // Violet scintillant
+    fifthColor: '220, 255, 230', // Vert très clair et lumineux
+    pointerColor: '150, 200, 255', // Bleu éclatant pour pointer
   },
 };
 

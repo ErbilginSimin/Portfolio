@@ -22,7 +22,7 @@ function Contact() {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/send-email', {
+      const response = await fetch('http://localhost:3001', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,17 +43,17 @@ function Contact() {
   return (
     <section
       id="Contact"
-      className={`${background} relative p-4 sm:p-6 md:p-8 lg:p-12 flex justify-center`}
+      className={`${background} relative p-4 sm:p-6 md:p-8 lg:p-12 flex justify-center `}
     >
       <BackgroundGradient
-        containerClassName="w-full max-w-lg"
+        containerClassName="w-full max-w-lg "
         className="p-6 sm:p-8 lg:p-12 "
       >
         <h2 className="text-white text-2xl font-bold text-center mb-4">
           Contactez-moi
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 ">
           <div>
             <label
               htmlFor="lastname"
