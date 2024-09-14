@@ -3,19 +3,19 @@ import { useSeason } from './SeasonContext';
 
 const seasonColors = {
   spring: {
-    background: 'bg-gradient-to-r from-green-300 to-green-500',
-    text: 'text-white',
+    background: 'bg-[rgb(241, 246, 244)]',
+    text: 'text-black',
     boxShadow: 'shadow-lg',
-    firstColor: '0, 204, 92',
-    secondColor: '0, 69, 0',
-    thirdColor: '0, 128, 0',
-    fourthColor: '0, 171, 145',
-    fifthColor: '0, 255, 0',
-    pointerColor: '0, 0, 255',
+    firstColor: '202, 233, 202',
+    secondColor: '255, 182, 193',
+    thirdColor: '186, 85, 211',
+    fourthColor: '0, 255, 127',
+    fifthColor: '255, 105, 180',
+    pointerColor: '173, 216, 230',
   },
   summer: {
     background: 'bg-[rgb(255,255,255)]',
-    text: 'text-[rgb(35,67,45)]',
+    text: 'text-black',
     boxShadow: 'shadow-lg',
     firstColor: '255, 204, 92',
     secondColor: '255, 69, 0',
@@ -39,12 +39,12 @@ const seasonColors = {
     background: 'bg-[#000a19]',
     text: 'text-white',
     boxShadow: 'shadow-lg',
-    firstColor: '50, 150, 200', // Bleu avec une teinte verte
-    secondColor: '100, 200, 150', // Vert clair évoquant les aurores boréales
-    thirdColor: '150, 200, 255', // Bleu ciel lumineux
-    fourthColor: '180, 100, 255', // Violet scintillant
-    fifthColor: '220, 255, 230', // Vert très clair et lumineux
-    pointerColor: '150, 200, 255', // Bleu éclatant pour pointer
+    firstColor: '50, 150, 200',
+    secondColor: '100, 200, 150',
+    thirdColor: '150, 200, 255',
+    fourthColor: '180, 100, 255',
+    fifthColor: '220, 255, 230',
+    pointerColor: '150, 200, 255',
   },
 };
 

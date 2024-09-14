@@ -7,7 +7,7 @@ function Header() {
   // Set the season context & burger menu state
   const { season } = useSeason();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { background, text } = useSeasonColors();
+  const { text } = useSeasonColors();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

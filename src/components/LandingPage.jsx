@@ -3,6 +3,7 @@ import About from '../components/About/About';
 import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import { AuroraBackground } from '../components/Motions/Aurora';
 import { BackgroundBeamsWithCollision } from '../components/Motions/BackgroundBeam';
 import { FlipWords } from '../components/Motions/flip-words';
 import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
@@ -17,7 +18,7 @@ import { useSeason } from '../contexts/SeasonContext';
 
 function LandingPage() {
   const { season } = useSeason();
-  const { background, text } = useSeasonColors();
+  const { text } = useSeasonColors();
   console.log(text);
 
   const FlipWordsComponent = () => {
@@ -49,7 +50,6 @@ function LandingPage() {
             fourthColor="255, 255, 102"
             fifthColor="255, 222, 173"
             pointerColor="255, 255, 224, 0.9"
-            size="100%"
             blendingValue="hard-light"
             className="absolute inset-0 z-0"
             containerClassName="absolute inset-0 -z-10"
@@ -66,13 +66,12 @@ function LandingPage() {
       case 'winter':
         return (
           <SparklesCore
-            size="100%"
             className="absolute inset-0 -z-10"
             containerClassName="absolute inset-0"
           />
         );
       case 'spring':
-        return <Vortex className="absolute inset-0 z-0" />;
+        return <AuroraBackground containerClassName="absolute inset-0" />;
     }
   };
 
@@ -105,7 +104,6 @@ function LandingPage() {
 
         <button
           onClick={scrollToNextSection}
-          style={{ color: text }}
           className="animate-bounce absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-5"
         >
           <svg

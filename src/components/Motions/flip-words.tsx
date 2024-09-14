@@ -11,7 +11,8 @@ export const FlipWords = ({
   duration?: number;
   className?: string;
 }) => {
-  const { text } = useSeasonColors(); // Appeler le hook ici
+  const { text } = useSeasonColors();
+
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
