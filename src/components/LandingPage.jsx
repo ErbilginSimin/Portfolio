@@ -10,6 +10,7 @@ import { BackgroundGradientAnimation } from '../components/Motions/Gradient';
 import { SparklesCore } from '../components/Motions/Snow';
 import SeasonSelector from '../components/SeasonSelector/SeasonSelector';
 import Skills from '../components/Skills/Skills';
+import Work from '../components/Work/Work';
 import {
   SeasonColorsProvider,
   useSeasonColors,
@@ -19,7 +20,6 @@ import { useSeason } from '../contexts/SeasonContext';
 function LandingPage() {
   const { season } = useSeason();
   const { text } = useSeasonColors();
-  console.log(text);
 
   const FlipWordsComponent = () => {
     const words = ['Bienvenue !', 'Un Projet ?', 'Parlons-en !'];
@@ -113,6 +113,7 @@ function LandingPage() {
             strokeWidth={1.5}
             stroke="currentColor"
             className="size-8"
+            style={{ color: text }}
           >
             <path
               strokeLinecap="round"
@@ -122,7 +123,7 @@ function LandingPage() {
           </svg>
         </button>
       </section>
-      {/* <Work /> */}
+      <Work />
       <Skills />
       <About />
 

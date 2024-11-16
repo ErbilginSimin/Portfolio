@@ -17,10 +17,10 @@ const SkillsCategory: React.FC<SkillsCategoryProps> = ({
   const { text } = useSeasonColors();
 
   return (
-    <BackgroundGradient className="relative h-full w-full sm:p-6 font-light bg-white/90 rounded-lg flex flex-col justify-start">
+    <BackgroundGradient className="relative h-full w-full sm:p-6 p-3 font-light bg-white/90 rounded-lg flex flex-col justify-start">
       <div className="flex items-center ">
-        <div className="text-xl flex-shrink-0 w-6 h-6 mr-2">{icon}</div>
-        <h3 className="text-lg font-semibold" style={{ color: text }}>
+        <div className="flex-shrink-0 mr-2 pb-3  ">{icon}</div>
+        <h3 className="text-sm font-semibold pb-3" style={{ color: text }}>
           {title}
         </h3>
       </div>

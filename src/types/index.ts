@@ -10,6 +10,7 @@ export interface SeasonColors {
   background: string;
   text: string;
   boxShadow: string;
+  shadowColor: string;
   firstColor: string;
   secondColor: string;
   thirdColor: string;

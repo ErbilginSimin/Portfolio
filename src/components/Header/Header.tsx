@@ -20,10 +20,12 @@ function Header() {
       <div className="z-20 flex items-center justify-between w-full px-4 md:px-12 py-4 md:py-0 ">
         <div className=" flex items-center">
           <img
-            src="/SiminLogo.png"
+            src="/LogoSimin.svg"
             alt="Logo Simin"
-            className="w-20 h-20 md:w-24 md:h-24"
+            className={`w-20 h-20 md:w-24 md:h-24 ${text}`}
+            // style={{ stroke: text }}
           />
+
           <h1 className={`${text} text-4xl font-bold`}>
             <span className={`${text} Name text-6xl font-semibold`}>S</span>imin
           </h1>

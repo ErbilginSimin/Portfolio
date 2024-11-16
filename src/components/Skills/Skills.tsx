@@ -1,6 +1,7 @@
 import React from 'react';
 import { SkillCategory } from 'src/types';
 import { useSeasonColors } from '../../contexts/SeasonColorsContext';
+import { BackgroundGradient } from '../Motions/BackgroundGradient';
 import SkillsCategory from './SkillsCategory';
 
 const icons: Record<SkillCategory, React.ReactElement> = {
@@ -116,7 +117,11 @@ const skillsData: Record<SkillCategory, string[]> = {
   'Langages de Programmation': ['JavaScript', 'TypeScript', 'PHP'],
   'Frameworks et Bibliothèques': ['React', 'Redux', 'Bootstrap', 'Tailwind'],
   Backend: ['Node.js', 'Express'],
-  'Base de Données': ['SQL (Postgres, MySQL)', 'NoSQL (MongoDB)'],
+  'Base de Données': [
+    'SQL (Postgres, MySQL)',
+    'NoSQL (MongoDB)',
+    'ORM (Prisma, Sequelize)',
+  ],
   Outils: ['API', 'Tests unitaires (JEST)'],
   Méthodologies: ['POO', 'Agile', 'SCRUM'],
 };
@@ -126,31 +131,30 @@ function Skills() {
   const { background, text } = useSeasonColors();
 
   return (
-    <section
-      id="Skills"
-      className={`${background} py-10`}
-      style={{ backgroundColor: background }}
-    >
-      <div className="container size-10/12 mx-auto px-4">
-        <h2
-          className={`text-4xl uppercase font-semibold mb-5 text-center pb-5 relative after:content-[''] after:absolute after:w-full after:h-1 ${text} after:left-0 after:bottom-0 after:transform after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100`}
-        >
-          Compétences
-        </h2>
+    <div>
+      <BackgroundGradient />
+      <section id="Skills" className={`${background} py-10`}>
+        <div className="container size-10/12 mx-auto px-4">
+          <h2
+            className={`text-4xl uppercase font-semibold mb-5 text-center pb-5 relative after:content-[''] after:absolute after:w-full after:h-1 ${text} after:left-0 after:bottom-0 after:transform after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100`}
+          >
+            Compétences
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {/* Loop through the skillsData object and display the SkillsCategory component */}
-          {Object.entries(skillsData).map(([title, skills]) => (
-            <SkillsCategory
-              key={title}
-              title={title as SkillCategory}
-              skills={skills}
-              icon={icons[title as SkillCategory]}
-            />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Loop through the skillsData object and display the SkillsCategory component */}
+            {Object.entries(skillsData).map(([title, skills]) => (
+              <SkillsCategory
+                key={title}
+                title={title as SkillCategory}
+                skills={skills}
+                icon={icons[title as SkillCategory]}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

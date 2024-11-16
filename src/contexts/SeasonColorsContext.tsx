@@ -3,9 +3,10 @@ import { useSeason } from './SeasonContext';
 
 const seasonColors = {
   spring: {
-    background: 'bg-[rgb(241, 246, 244)]',
-    text: 'text-black',
+    background: 'bg-[rgb(238,248,232)]',
+    text: 'text-[rgb(0,0,0)]',
     boxShadow: 'shadow-lg',
+    shadowColor: 'shadow-[0_4px_15px_rgba(255,182,193,0.5)]',
     firstColor: '202, 233, 202',
     secondColor: '255, 182, 193',
     thirdColor: '186, 85, 211',
@@ -14,9 +15,10 @@ const seasonColors = {
     pointerColor: '173, 216, 230',
   },
   summer: {
-    background: 'bg-[rgb(255,255,255)]',
-    text: 'text-black',
+    background: 'bg-[rgb(254,248,238)]',
+    text: 'text-[rgb(0,0,0)]',
     boxShadow: 'shadow-lg',
+    shadowColor: 'shadow-[0_4px_15px_rgba(255,204,92,0.5)]',
     firstColor: '255, 204, 92',
     secondColor: '255, 69, 0',
     thirdColor: '255, 128, 0',
@@ -25,9 +27,10 @@ const seasonColors = {
     pointerColor: '0, 0, 139',
   },
   autumn: {
-    background: 'bg-gradient-to-b from-[#f5f5f5] to-[#ffffff]',
-    text: 'text-black',
+    background: 'bg-[rgb(246,246,246)]',
+    text: 'text-[rgb(0,0,0)]',
     boxShadow: 'shadow-lg',
+    shadowColor: 'shadow-[0_4px_15px_rgba(255,165,0,0.5)]',
     firstColor: '255, 165, 0',
     secondColor: '95, 158, 160',
     thirdColor: '176, 196, 222',
@@ -37,8 +40,9 @@ const seasonColors = {
   },
   winter: {
     background: 'bg-[#000a19]',
-    text: 'text-white',
+    text: 'text-[rgb(255,255,255)]',
     boxShadow: 'shadow-lg',
+    shadowColor: 'shadow-[0_4px_15px_rgba(50,150,200,0.5)]',
     firstColor: '50, 150, 200',
     secondColor: '100, 200, 150',
     thirdColor: '150, 200, 255',

@@ -22,7 +22,7 @@ function SeasonSelector() {
           key={season.name}
           src={season.icon}
           alt={`${season.name} icon`}
-          className="w-10 h-10 cursor-pointer hover:bg-white transform transition duration-300 ease-in-out rounded-md"
+          className="w-10 h-10 cursor-pointer underline"
           onClick={() => handleSeasonClick(season.name)}
         />
       ))}
